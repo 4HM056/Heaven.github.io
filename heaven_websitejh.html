@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Heaven — Media Hub</title>
+  <meta name="description" content="Heaven: your dark-blue themed hub for Images, Videos, News and Music">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="logo">H</div>
+        <div>
+          <h1>Heaven</h1>
+          <div style="font-size:12px;color:var(--muted)">Dark-blue media hub</div>
+        </div>
+      </div>
+
+      <nav aria-label="Main navigation">
+        <button class="nav-btn" data-nav="images">Images</button>
+        <button class="nav-btn" data-nav="videos">Videos</button>
+        <button class="nav-btn" data-nav="news">News</button>
+        <button class="nav-btn" data-nav="music">Music</button>
+        <button class="nav-btn" id="uploadBtn">Upload</button>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div class="left">
+        <h2>Welcome to Heaven</h2>
+        <p>Host and explore images, videos, latest news and music. Use the menu above to switch sections or browse below.</p>
+      </div>
+      <div class="actions">
+        <button class="nav-btn" data-nav="images">Browse images</button>
+        <button class="nav-btn" data-nav="videos">Watch videos</button>
+      </div>
+    </section>
+
+    <div class="grid">
+      <main class="main" id="mainContent">
+        <!-- IMAGES SECTION -->
+        <section id="images" class="media-section">
+          <div class="section-title"><h3>Images</h3><div style="color:var(--muted);font-size:13px">Gallery</div></div>
+          <div class="card">
+            <input id="imgSearch" type="search" placeholder="Search images by title..." style="width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.03);background:transparent;color:inherit">
+          </div>
+          <div class="gallery" id="gallery">
+            <!-- thumbnails injected by JS -->
+          </div>
+        </section>
+
+        <!-- VIDEOS SECTION -->
+        <section id="videos" class="media-section" style="display:none;margin-top:12px">
+          <div class="section-title"><h3>Videos</h3><div style="color:var(--muted);font-size:13px">Clips & uploads</div></div>
+          <div class="videos" id="videoGrid">
+            <!-- videos injected by JS -->
+          </div>
+        </section>
+
+        <!-- NEWS SECTION -->
+        <section id="news" class="media-section" style="display:none;margin-top:12px">
+          <div class="section-title"><h3>News</h3><div style="color:var(--muted);font-size:13px">Latest updates</div></div>
+          <div class="news-list" id="newsList">
+            <!-- news injected by JS -->
+          </div>
+        </section>
+
+        <!-- MUSIC SECTION -->
+        <section id="music" class="media-section" style="display:none;margin-top:12px">
+          <div class="section-title"><h3>Music</h3><div style="color:var(--muted);font-size:13px">Playlists</div></div>
+          <div class="card">
+            <div style="display:flex;gap:12px;align-items:center">
+              <div style="font-weight:600">Now playing</div>
+              <audio id="player" controls style="width:100%"></audio>
+            </div>
+          </div>
+          <div class="playlist" id="playlist">
+            <!-- tracks by JS -->
+          </div>
+        </section>
+
+      </main>
+
+      <aside class="side">
+        <div class="section-title"><h4>Quick News</h4><div style="color:var(--muted);font-size:12px">Headlines</div></div>
+        <div id="sideNews" class="card">
+          Loading headlines...
+        </div>
+
+        <div style="height:12px"></div>
+
+        <div class="section-title"><h4>Quick Upload</h4><div style="color:var(--muted);font-size:12px">Add media</div></div>
+        <div class="card">
+          <input id="fileInput" type="file" accept="image/*,video/*,audio/*" multiple style="width:100%">
+          <div style="margin-top:8px;font-size:13px;color:var(--muted)">Select files to add to your local library (demo — files are not uploaded to any server).</div>
+        </div>
+      </aside>
+    </div>
+
+    <div class="modal" id="modal">
+      <div class="box">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+          <strong id="modalTitle">Preview</strong>
+          <button class="close-btn" id="closeModal">Close</button>
+        </div>
+        <div id="modalBody"></div>
+      </div>
+    </div>
+
+    <footer>
+      © <span id="year"></span> Heaven — Made with ❤️ for your media. Built with a dark-blue theme.
+    </footer>
+  </div>
+
+  <script>
+    // JavaScript remains unchanged (same as before)
+  </script>
+</body>
+</html>
