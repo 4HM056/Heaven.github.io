@@ -1,0 +1,338 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Heaven — Media Hub</title>
+  <meta name="description" content="Heaven: your dark-blue themed hub for Images, Videos, News and Music">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#061229; /* deep navy */
+      --card:#0b2038;
+      --accent:#2a6fcb; /* bright blue */
+      --muted:#93a7c7;
+      --glass: rgba(255,255,255,0.04);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;font-family:Inter,system-ui,Arial,sans-serif;background:linear-gradient(180deg,var(--bg),#041827 120%);color:#e6f2ff}
+    a{color:inherit}
+
+    /* layout */
+    .container{max-width:1100px;margin:36px auto;padding:24px}
+    header{display:flex;align-items:center;justify-content:space-between;gap:16px}
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo{width:48px;height:48px;border-radius:12px;background:linear-gradient(135deg,var(--accent),#1b9af7);display:flex;align-items:center;justify-content:center;font-weight:700;color:white;box-shadow:0 6px 18px rgba(11,32,56,0.6)}
+    .brand h1{font-size:18px;margin:0}
+    nav{display:flex;gap:10px;align-items:center}
+    .nav-btn{padding:10px 14px;border-radius:10px;background:transparent;border:1px solid transparent;color:var(--muted);cursor:pointer}
+    .nav-btn:hover{color:white}
+
+    /* hero */
+    .hero{margin-top:20px;padding:22px;border-radius:14px;background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);backdrop-filter: blur(6px);display:flex;align-items:center;gap:20px}
+    .hero .left{flex:1}
+    .hero h2{margin:0 0 8px 0;font-size:20px}
+    .hero p{margin:0;color:var(--muted)}
+
+    /* sections */
+    .grid{display:grid;grid-template-columns:1fr 320px;gap:20px;margin-top:20px}
+    .main{background:var(--card);padding:18px;border-radius:12px}
+    .side{background:var(--card);padding:18px;border-radius:12px;height:max-content}
+
+    /* cards */
+    .section-title{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
+    .card{background:var(--glass);padding:12px;border-radius:10px;margin-bottom:12px}
+
+    /* gallery */
+    .gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:10px}
+    .thumb{position:relative;overflow:hidden;border-radius:10px;background:#08243a;cursor:pointer}
+    .thumb img{width:100%;height:120px;object-fit:cover;display:block;transition:transform .3s}
+    .thumb:hover img{transform:scale(1.05)}
+    .thumb .meta{position:absolute;left:8px;bottom:8px;background:rgba(0,0,0,0.35);padding:6px 8px;border-radius:8px;font-size:12px}
+
+    /* videos */
+    .videos{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:10px}
+    .video-card{border-radius:10px;overflow:hidden;background:#071a2a}
+    .video-card video{width:100%;height:140px;object-fit:cover;display:block}
+    .video-card .vmeta{padding:8px}
+
+    /* news */
+    .news-list{display:flex;flex-direction:column;gap:10px}
+    .news-item{display:flex;gap:10px;align-items:flex-start}
+    .news-item img{width:84px;height:64px;object-fit:cover;border-radius:8px}
+    .news-item h4{margin:0 0 6px 0;font-size:14px}
+    .news-item p{margin:0;color:var(--muted);font-size:13px}
+
+    /* audio */
+    .playlist{display:flex;flex-direction:column;gap:8px}
+    .track{display:flex;align-items:center;gap:10px;padding:8px;border-radius:8px;background:rgba(255,255,255,0.02)}
+    .track button{margin-left:auto}
+
+    /* modal */
+    .modal{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(2,6,12,0.6);z-index:60;opacity:0;pointer-events:none;transition:opacity .18s}
+    .modal.visible{opacity:1;pointer-events:auto}
+    .modal .box{max-width:960px;width:94%;background:linear-gradient(180deg,#07122a,#062033);padding:14px;border-radius:12px;box-shadow:0 10px 40px rgba(0,0,0,0.6)}
+    .close-btn{background:transparent;border:1px solid rgba(255,255,255,0.06);padding:6px 10px;border-radius:8px;color:var(--muted);cursor:pointer}
+
+    footer{margin-top:30px;text-align:center;color:var(--muted);font-size:13px}
+
+    /* responsive */
+    @media (max-width:880px){
+      .grid{grid-template-columns:1fr}
+      .hero{flex-direction:column;align-items:flex-start}
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="logo">H</div>
+        <div>
+          <h1>Heaven</h1>
+          <div style="font-size:12px;color:var(--muted)">Dark-blue media hub</div>
+        </div>
+      </div>
+
+      <nav aria-label="Main navigation">
+        <button class="nav-btn" data-nav="images">Images</button>
+        <button class="nav-btn" data-nav="videos">Videos</button>
+        <button class="nav-btn" data-nav="news">News</button>
+        <button class="nav-btn" data-nav="music">Music</button>
+        <button class="nav-btn" id="uploadBtn">Upload</button>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div class="left">
+        <h2>Welcome to Heaven</h2>
+        <p>Host and explore images, videos, latest news and music. Use the menu above to switch sections or browse below.</p>
+      </div>
+      <div class="actions">
+        <button class="nav-btn" data-nav="images">Browse images</button>
+        <button class="nav-btn" data-nav="videos">Watch videos</button>
+      </div>
+    </section>
+
+    <div class="grid">
+      <main class="main" id="mainContent">
+        <!-- IMAGES SECTION -->
+        <section id="images" class="media-section">
+          <div class="section-title"><h3>Images</h3><div style="color:var(--muted);font-size:13px">Gallery</div></div>
+          <div class="card">
+            <input id="imgSearch" type="search" placeholder="Search images by title..." style="width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.03);background:transparent;color:inherit">
+          </div>
+          <div class="gallery" id="gallery">
+            <!-- thumbnails injected by JS -->
+          </div>
+        </section>
+
+        <!-- VIDEOS SECTION -->
+        <section id="videos" class="media-section" style="display:none;margin-top:12px">
+          <div class="section-title"><h3>Videos</h3><div style="color:var(--muted);font-size:13px">Clips & uploads</div></div>
+          <div class="videos" id="videoGrid">
+            <!-- videos injected by JS -->
+          </div>
+        </section>
+
+        <!-- NEWS SECTION -->
+        <section id="news" class="media-section" style="display:none;margin-top:12px">
+          <div class="section-title"><h3>News</h3><div style="color:var(--muted);font-size:13px">Latest updates</div></div>
+          <div class="news-list" id="newsList">
+            <!-- news injected by JS -->
+          </div>
+        </section>
+
+        <!-- MUSIC SECTION -->
+        <section id="music" class="media-section" style="display:none;margin-top:12px">
+          <div class="section-title"><h3>Music</h3><div style="color:var(--muted);font-size:13px">Playlists</div></div>
+          <div class="card">
+            <div style="display:flex;gap:12px;align-items:center">
+              <div style="font-weight:600">Now playing</div>
+              <audio id="player" controls style="width:100%"></audio>
+            </div>
+          </div>
+          <div class="playlist" id="playlist">
+            <!-- tracks by JS -->
+          </div>
+        </section>
+
+      </main>
+
+      <aside class="side">
+        <div class="section-title"><h4>Quick News</h4><div style="color:var(--muted);font-size:12px">Headlines</div></div>
+        <div id="sideNews" class="card">
+          Loading headlines...
+        </div>
+
+        <div style="height:12px"></div>
+
+        <div class="section-title"><h4>Quick Upload</h4><div style="color:var(--muted);font-size:12px">Add media</div></div>
+        <div class="card">
+          <input id="fileInput" type="file" accept="image/*,video/*,audio/*" multiple style="width:100%">
+          <div style="margin-top:8px;font-size:13px;color:var(--muted)">Select files to add to your local library (demo — files are not uploaded to any server).</div>
+        </div>
+      </aside>
+    </div>
+
+    <div class="modal" id="modal">
+      <div class="box">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+          <strong id="modalTitle">Preview</strong>
+          <button class="close-btn" id="closeModal">Close</button>
+        </div>
+        <div id="modalBody"></div>
+      </div>
+    </div>
+
+    <footer>
+      © <span id="year"></span> Heaven — Made with ❤️ for your media. Built with a dark-blue theme.
+    </footer>
+  </div>
+
+  <script>
+    // ====== sample data (replace or enhance with server data) ======
+    const sampleImages = [
+      {id:1,title:'Moonlight',src:'https://images.unsplash.com/photo-1454789548928-9efd52dc4031?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=0'},
+      {id:2,title:'Blue City',src:'https://images.unsplash.com/photo-1505765051750-4fbf4d1b2a3f?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=0'},
+      {id:3,title:'Aurora',src:'https://images.unsplash.com/photo-1444703686981-a3abbc4d4fe3?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=0'},
+      {id:4,title:'Nebula',src:'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=0'}
+    ];
+
+    const sampleVideos = [
+      {id:1,title:'Waves',src:'https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4',thumb:'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=0'},
+      {id:2,title:'City Drive',src:'https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4',thumb:'https://images.unsplash.com/photo-1494526585095-c41746248156?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=0'}
+    ];
+
+    const sampleNews = [
+      {id:1,title:'Heaven site launch',img:'https://images.unsplash.com/photo-1508780709619-79562169bc64?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=0',summary:'We launched a demo of Heaven — a dark blue media hub.'},
+      {id:2,title:'New features rolling',img:'https://images.unsplash.com/photo-1515879218367-8466d910aaa4?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=0',summary:'Upcoming features include playlists and better uploader.'}
+    ];
+
+    const sampleTracks = [
+      {id:1,title:'Drift',src:'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3'},
+      {id:2,title:'Skyline',src:'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3'}
+    ];
+
+    // ====== render helpers ======
+    const gallery = document.getElementById('gallery');
+    const videoGrid = document.getElementById('videoGrid');
+    const newsList = document.getElementById('newsList');
+    const sideNews = document.getElementById('sideNews');
+    const playlist = document.getElementById('playlist');
+    const player = document.getElementById('player');
+    const modal = document.getElementById('modal');
+    const modalBody = document.getElementById('modalBody');
+    const modalTitle = document.getElementById('modalTitle');
+
+    function renderImages(list){
+      gallery.innerHTML = '';
+      list.forEach(i=>{
+        const d = document.createElement('div'); d.className='thumb'; d.dataset.id=i.id;
+        d.innerHTML = `<img alt="${i.title}" src="${i.src}"><div class=\"meta\">${i.title}</div>`;
+        d.addEventListener('click',()=>openImage(i));
+        gallery.appendChild(d);
+      });
+    }
+
+    function renderVideos(list){
+      videoGrid.innerHTML='';
+      list.forEach(v=>{
+        const card = document.createElement('div'); card.className='video-card';
+        card.innerHTML = `
+          <video src="${v.src}" muted playsinline preload="metadata" poster="${v.thumb}"></video>
+          <div class=\"vmeta\"><strong>${v.title}</strong></div>
+        `;
+        const vid = card.querySelector('video');
+        vid.addEventListener('click',()=>openVideo(v, vid));
+        videoGrid.appendChild(card);
+      });
+    }
+
+    function renderNews(list){
+      newsList.innerHTML='';
+      list.forEach(n=>{
+        const node = document.createElement('div'); node.className='news-item';
+        node.innerHTML = `<img src="${n.img}" alt="${n.title}"><div><h4>${n.title}</h4><p>${n.summary}</p></div>`;
+        newsList.appendChild(node);
+      });
+      sideNews.innerHTML = list.slice(0,2).map(n=>`<div style=\"margin-bottom:8px\"><strong>${n.title}</strong><div style=\"font-size:13px;color:var(--muted)\">${n.summary}</div></div>`).join('');
+    }
+
+    function renderTracks(list){
+      playlist.innerHTML='';
+      list.forEach(t=>{
+        const tr = document.createElement('div'); tr.className='track';
+        tr.innerHTML = `<div style=\"font-weight:600\">${t.title}</div><button class=\"nav-btn\">Play</button>`;
+        tr.querySelector('button').addEventListener('click',()=>{ player.src=t.src; player.play(); });
+        playlist.appendChild(tr);
+      });
+    }
+
+    // ===== modal helpers =====
+    function openImage(item){
+      modalTitle.textContent = item.title;
+      modalBody.innerHTML = `<img src="${item.src}" alt="${item.title}" style=\"width:100%;height:auto;border-radius:8px\">`;
+      modal.classList.add('visible');
+    }
+    function openVideo(item, vidEl){
+      modalTitle.textContent = item.title;
+      modalBody.innerHTML = `<video controls autoplay style=\"width:100%;height:auto;border-radius:8px\" src=\"${item.src}\"></video>`;
+      modal.classList.add('visible');
+    }
+
+    document.getElementById('closeModal').addEventListener('click',()=>modal.classList.remove('visible'));
+    modal.addEventListener('click',(e)=>{ if(e.target===modal) modal.classList.remove('visible') });
+
+    // ===== quick nav =====
+    document.querySelectorAll('[data-nav]').forEach(b=>b.addEventListener('click',()=>{
+      const id = b.dataset.nav;
+      document.querySelectorAll('.media-section').forEach(s=>s.style.display='none');
+      const target = document.getElementById(id);
+      if(target) target.style.display='block';
+      window.scrollTo({top:target.offsetTop-20,behavior:'smooth'});
+    }));
+
+    // ===== upload demo (local-only demo) =====
+    const fileInput = document.getElementById('fileInput');
+    fileInput.addEventListener('change',(ev)=>{
+      const files = Array.from(ev.target.files);
+      files.forEach(f=>{
+        const url = URL.createObjectURL(f);
+        if(f.type.startsWith('image/')){
+          sampleImages.unshift({id:Date.now(),title:f.name,src:url}); renderImages(sampleImages);
+        } else if(f.type.startsWith('video/')){
+          sampleVideos.unshift({id:Date.now(),title:f.name,src:url,thumb:''}); renderVideos(sampleVideos);
+        } else if(f.type.startsWith('audio/')){
+          sampleTracks.unshift({id:Date.now(),title:f.name,src:url}); renderTracks(sampleTracks);
+        }
+      });
+    });
+
+    // ===== search images =====
+    document.getElementById('imgSearch').addEventListener('input',(e)=>{
+      const q = e.target.value.trim().toLowerCase();
+      renderImages(sampleImages.filter(i=>i.title.toLowerCase().includes(q)));
+    });
+
+    // ===== sample renderer startup =====
+    renderImages(sampleImages);
+    renderVideos(sampleVideos);
+    renderNews(sampleNews);
+    renderTracks(sampleTracks);
+
+    // upload button triggers file input
+    document.getElementById('uploadBtn').addEventListener('click',()=>fileInput.click());
+
+    // footer year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // small UX: allow clicking video preview to play inline
+    document.addEventListener('click',(e)=>{
+      if(e.target.tagName === 'VIDEO' && e.target.paused) e.target.play();
+      else if(e.target.tagName === 'VIDEO' && !e.target.paused) e.target.pause();
+    });
+
+  </script>
+</body>
+</html>
