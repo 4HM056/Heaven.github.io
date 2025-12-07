@@ -22,8 +22,10 @@ async function token() {
   return resp.data.access_token;
 }
 
-async function fetchLeaderboard(accessToken, limit = 200) {
-  const url = `${API_BASE}/rankings/osu/country?country=${encodeURIComponent(COUNTRY)}&type=performance&limit=${limit}`;
+async function fetchLeaderboard(accessToken, limit = 50) {
+  // Corrected endpoint for country rankings
+  const url = `${API_BASE}/rankings/osu/performance?country=${encodeURIComponent(COUNTRY)}&limit=${limit}`;
+  console.log('Fetching from:', url);
   const resp = await axios.get(url, { headers: { Authorization: `Bearer ${accessToken}` }});
   return resp.data;
 }
@@ -32,8 +34,12 @@ async function fetchLeaderboard(accessToken, limit = 200) {
   try {
     console.log('Fetching token...');
     const t = await token();
-    console.log('Fetching leaderboard...');
+    console.log('Token acquired. Fetching leaderboard for country:', COUNTRY);
     const data = await fetchLeaderboard(t, 200);
+    
+    console.log('API response keys:', Object.keys(data));
+    if (data.ranking) console.log('Ranking items:', data.ranking.length);
+    
     const out = {
       updated_at: Date.now(),
       country: COUNTRY,
