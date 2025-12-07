@@ -15,9 +15,7 @@
 <body>
   <h1>Osu! Iraq Leaderboard</h1>
   <p class="small">Auto-updated via GitHub Actions. Data for country <strong>IQ</strong>.</p>
-
   <p>Last update: <span id="updated">-</span> — Source: <span id="source">leaderboard.json</span></p>
-
   <table id="table" aria-live="polite">
     <thead><tr><th>#</th><th>Username</th><th>Rank</th><th>Performance</th></tr></thead>
     <tbody></tbody>
@@ -34,7 +32,6 @@
         const tbody = document.querySelector('#table tbody');
         tbody.innerHTML = '';
 
-        // Try common shapes used previously
         const data = json.data || json;
         let list = [];
         if (Array.isArray(data)) list = data;
