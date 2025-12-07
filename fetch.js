@@ -1,80 +1,81 @@
-// fetch.js
-// Fetch osu! API v2 leaderboard for a country
-// Produces leaderboard.json with: 
-// { updated_at, country, source, items: [ { username, user_id, pp, play_count, accuracy, ranked_score, avatar_url, profile_url } ] }
-
-const fs = require('fs');
-const axios = require('axios');
+// fetch.js — Official osu! API Version
+const axios = require("axios");
+const fs = require("fs");
 
 const CLIENT_ID = process.env.OSU_CLIENT_ID;
 const CLIENT_SECRET = process.env.OSU_CLIENT_SECRET;
-const COUNTRY = process.env.OSU_COUNTRY || 'IQ';
-const API_BASE = process.env.OSU_API_BASE || 'https://osu.ppy.sh/api/v2';
+const COUNTRY = process.env.OSU_COUNTRY || "IQ";
 
-if (!CLIENT_ID || !CLIENT_SECRET) {
-  console.error('OSU_CLIENT_ID and OSU_CLIENT_SECRET must be set.');
-  process.exit(1);
-}
-
-// Get OAuth token
-async function token() {
-  const url = 'https://osu.ppy.sh/oauth/token';
-  const resp = await axios.post(url, {
-    client_id: Number(CLIENT_ID),
+async function getToken() {
+  const res = await axios.post("https://osu.ppy.sh/oauth/token", {
+    client_id: CLIENT_ID,
     client_secret: CLIENT_SECRET,
-    grant_type: 'client_credentials',
-    scope: 'public'
-  }, { headers: {'Content-Type':'application/json'}});
-  return resp.data.access_token;
+    grant_type: "client_credentials",
+    scope: "public",
+  });
+
+  return res.data.access_token;
 }
 
-// Fetch leaderboard via osu! API
-async function fetchLeaderboard(accessToken, limit = 100) {
-  const url = `${API_BASE}/rankings/osu/performance?country=${encodeURIComponent(COUNTRY)}&limit=${limit}`;
-  console.log('Fetching leaderboard from API...');
-  const resp = await axios.get(url, { headers: { Authorization: `Bearer ${accessToken}` }});
-  const data = resp.data.ranking?.items || resp.data.items || [];
-  
-  // Map to our format
-  return data.map((u, idx) => {
-    const user = u.user || {};
-    const stats = user.statistics || {};
-    return {
-      username: user.username || 'Unknown',
-      user_id: user.id || null,
-      pp: u.pp || stats.pp || null,
-      play_count: stats.play_count || 0,
-      accuracy: stats.hit_accuracy ? Number(stats.hit_accuracy.toFixed(2)) : 0,
-      ranked_score: stats.ranked_score || 0,
-      global_rank: stats.global_rank || null,
-      country_rank: stats.country_rank || null,
-      avatar_url: user.avatar_url || '',
-      profile_url: user.id ? `https://osu.ppy.sh/users/${user.id}` : '#'
-    };
-  });
+async function fetchCountryLeaderboard(token) {
+  let all = [];
+  let cursor = null;
+
+  while (true) {
+    const url = "https://osu.ppy.sh/api/v2/rankings/osu/performance";
+
+    const res = await axios.get(url, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+      params: {
+        country: COUNTRY,
+        cursor_string: cursor,
+      },
+    });
+
+    all.push(...res.data.ranking);
+
+    // pagination: break if no more pages
+    if (!res.data.cursor || !res.data.cursor.pagination || !res.data.cursor.pagination.cursor_string) {
+      break;
+    }
+
+    cursor = res.data.cursor.pagination.cursor_string;
+  }
+
+  return all;
 }
 
 (async () => {
   try {
-    const t = await token();
-    const items = await fetchLeaderboard(t, 100);
+    console.log("Getting OAuth token...");
+    const token = await getToken();
 
-    if (!items || items.length === 0) {
-      console.error('No data returned from API.');
-      process.exit(1);
-    }
+    console.log("Fetching leaderboard for country:", COUNTRY);
+    const items = await fetchCountryLeaderboard(token);
 
-    const out = {
-      updated_at: Date.now(),
+    const result = {
+      updated_at: new Date().toISOString(),
       country: COUNTRY,
-      source: 'api',
-      items
+      source: "osu API v2",
+      total: items.length,
+      items: items.map((u) => ({
+        username: u.user.username,
+        user_id: u.user.id,
+        pp: u.pp,
+        rank: u.global_rank,
+        country_rank: u.country_rank,
+        avatar_url: u.user.avatar_url,
+        profile_url: `https://osu.ppy.sh/users/${u.user.id}`,
+      })),
     };
 
-    fs.writeFileSync('leaderboard.json', JSON.stringify(out, null, 2), 'utf8');
-    console.log('leaderboard.json written with', items.length, 'items.');
+    fs.writeFileSync("leaderboard.json", JSON.stringify(result, null, 2));
+    console.log("leaderboard.json updated successfully!");
+
   } catch (err) {
-    console.error('Failed to fetch leaderboard:', err.response?.data || err.message || err);
-    process.exit(2);
+    console.error("Error:", err.response ? err.response.data : err);
+    process.exit(1);
   }
 })();
