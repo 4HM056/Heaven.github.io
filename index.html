@@ -1,138 +1,115 @@
 <!doctype html>
 <html>
 <head>
-<meta charset="utf-8" />
+<meta charset="utf-8">
 <title>Osu! Iraq Leaderboard</title>
-<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <style>
 body { font-family: Arial, sans-serif; padding: 20px; max-width: 1200px; margin: auto; }
 table { border-collapse: collapse; width: 100%; margin-bottom: 20px; }
 th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
-th { background: #f4f4f4; cursor: pointer; }
-img.avatar { width: 32px; height: 32px; border-radius: 50%; vertical-align: middle; margin-right: 8px; }
-.small { font-size: .9em; color: #666; }
-.top1 { background-color: gold; }
-.top2 { background-color: silver; }
-.top3 { background-color: #cd7f32; }
-.tab { display: inline-block; padding: 10px 20px; margin-right: 5px; cursor: pointer; background: #eee; border-radius: 5px; }
-.tab.active { background: #ccc; }
-.tab-content { display: none; }
-.tab-content.active { display: block; }
-#search { margin: 10px 0; padding: 5px; width: 300px; }
-.pagination { margin: 10px 0; }
-.page-btn { cursor: pointer; padding: 5px 10px; margin: 0 2px; background: #eee; border-radius: 3px; }
-.page-btn.active { background: #ccc; }
+th { background: #f4f4f4; }
+.avatar { width:24px; height:24px; border-radius:50%; vertical-align:middle; margin-right:8px; }
+.tab { display:none; }
+.tab.active { display:block; }
+.tab-buttons button { margin-right:5px; padding:5px 10px; }
+.top1 { background: gold; }
+.top2 { background: silver; }
+.top3 { background: #cd7f32; }
+.search { margin-bottom:10px; padding:5px; width:250px; }
+.page-nav button { margin:2px; padding:2px 5px; }
 </style>
 </head>
 <body>
-
 <h1>Osu! Iraq Leaderboard</h1>
-<p class="small">Auto-updated via GitHub Actions (official osu! API v2).</p>
-<p>Last update: <span id="updated">-</span></p>
+<p class="small">Auto-updated via GitHub Actions. Data for country <strong>IQ</strong>.</p>
+<p>Last update: <span id="updated">-</span> — Source: <span id="source">leaderboard.json</span></p>
 
-<div id="tabs"></div>
-<input type="text" id="search" placeholder="Search username..." />
+<div class="tab-buttons">
+<button onclick="showTab('pp')">PP</button>
+<button onclick="showTab('accuracy')">Accuracy</button>
+<button onclick="showTab('play_count')">Play Count</button>
+<button onclick="showTab('ranked_score')">Ranked Score</button>
+</div>
 
-<div id="contents"></div>
+<input type="text" id="searchBox" class="search" placeholder="Search username..." oninput="renderCurrentTab()">
+
+<div id="pp" class="tab"></div>
+<div id="accuracy" class="tab"></div>
+<div id="play_count" class="tab"></div>
+<div id="ranked_score" class="tab"></div>
 
 <script>
-const metrics = [
-  { key: 'pp', name: 'Performance Points (PP)' },
-  { key: 'level', name: 'Level' },
-  { key: 'accuracy', name: 'Accuracy' },
-  { key: 'play_count', name: 'Play Count' },
-  { key: 'ranked_score', name: 'Ranked Score' },
-  { key: 'top_plays', name: 'Top Plays' },
-  { key: 'ss_count', name: 'SS Count' },
-];
-
-let items = [];
-let currentMetric = 'pp';
+let leaderboard = [];
+let currentTab = 'pp';
 let currentPage = 1;
 
-function renderTabs() {
-  const tabs = document.getElementById('tabs');
-  tabs.innerHTML = '';
-  metrics.forEach(m => {
-    const t = document.createElement('div');
-    t.className = 'tab' + (m.key === currentMetric ? ' active' : '');
-    t.textContent = m.name;
-    t.onclick = () => { currentMetric = m.key; currentPage = 1; updateLeaderboard(); renderTabs(); };
-    tabs.appendChild(t);
-  });
+function showTab(tab) {
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById(tab).classList.add('active');
+  currentTab = tab;
+  currentPage = 1;
+  renderCurrentTab();
 }
 
-function renderPagination(totalPages) {
-  const div = document.createElement('div');
-  div.className = 'pagination';
-  for (let i=1;i<=totalPages;i++){
-    const btn = document.createElement('span');
-    btn.className = 'page-btn' + (i===currentPage?' active':'');
-    btn.textContent = i;
-    btn.onclick = () => { currentPage = i; updateLeaderboard(); };
-    div.appendChild(btn);
+function formatNum(n) { return n.toLocaleString(); }
+
+function renderTable(tabId, data) {
+  const perPage = 50;
+  const totalPages = Math.ceil(data.length / perPage);
+  const start = (currentPage-1)*perPage;
+  const end = start+perPage;
+  const slice = data.slice(start,end);
+
+  let html = `<table><thead><tr><th>#</th><th>Username</th><th>${tabId.replace('_',' ')}</th></tr></thead><tbody>`;
+  slice.forEach((p,i) => {
+    const rank = start+i+1;
+    let cls='';
+    if(rank===1) cls='top1';
+    else if(rank===2) cls='top2';
+    else if(rank===3) cls='top3';
+    html += `<tr class="${cls}"><td>${rank}</td>
+             <td><img src="${p.avatar_url}" class="avatar"><a href="${p.profile_url}" target="_blank">${p.username}</a></td>
+             <td>${tabId==='accuracy'?p[tabId].toFixed(2)+'%':formatNum(p[tabId])}</td></tr>`;
+  });
+  html += `</tbody></table>`;
+
+  // pagination buttons
+  html += '<div class="page-nav">';
+  for(let i=1;i<=totalPages;i++){
+    html += `<button onclick="currentPage=${i}; renderCurrentTab();">${i}</button>`;
   }
-  return div;
+  html += '</div>';
+
+  document.getElementById(tabId).innerHTML = html;
 }
 
-function updateLeaderboard() {
-  const tbodyId = 'table-body';
-  let container = document.getElementById('contents');
-  container.innerHTML = '';
-
-  const table = document.createElement('table');
-  const thead = document.createElement('thead');
-  thead.innerHTML = `<tr><th>#</th><th>User</th><th>${metrics.find(m=>m.key===currentMetric).name}</th></tr>`;
-  table.appendChild(thead);
-  const tbody = document.createElement('tbody');
-  tbody.id = tbodyId;
-  table.appendChild(tbody);
-  container.appendChild(table);
-
-  // Filter by search
-  const searchVal = document.getElementById('search').value.toLowerCase();
-  let filtered = items.filter(u=>u.username.toLowerCase().includes(searchVal));
-
-  // Sort by metric descending
-  filtered.sort((a,b) => (b[currentMetric]||0)-(a[currentMetric]||0));
-
-  // Pagination: 50 per page
-  const totalPages = Math.ceil(filtered.length / 50);
-  const pageItems = filtered.slice((currentPage-1)*50, currentPage*50);
-
-  pageItems.forEach((u,i)=>{
-    const tr = document.createElement('tr');
-    if(i===0) tr.classList.add('top1');
-    if(i===1) tr.classList.add('top2');
-    if(i===2) tr.classList.add('top3');
-    tr.innerHTML = `
-      <td>${(currentPage-1)*50 + i +1}</td>
-      <td><img src="${u.avatar_url}" class="avatar"><a href="${u.profile_url}" target="_blank">${u.username}</a></td>
-      <td>${u[currentMetric]}</td>
-    `;
-    tbody.appendChild(tr);
-  });
-
-  container.appendChild(renderPagination(totalPages));
+function renderCurrentTab() {
+  const search = document.getElementById('searchBox').value.toLowerCase();
+  const items = leaderboard
+    .filter(p => !search || p.username.toLowerCase().includes(search))
+    .sort((a,b)=>{
+      if(currentTab==='accuracy') return b[currentTab]-a[currentTab];
+      return b[currentTab]-a[currentTab];
+    });
+  renderTable(currentTab, items);
 }
 
 async function load() {
   try {
-    const res = await fetch('leaderboard.json', {cache: "no-store"});
+    const res = await fetch('leaderboard.json', {cache:'no-store'});
     const json = await res.json();
-    items = json.items || [];
-    document.getElementById('updated').textContent = new Date(json.updated_at).toLocaleString();
-    renderTabs();
-    updateLeaderboard();
-  } catch (err) {
-    document.getElementById('contents').innerHTML = `<p>Error: ${err.message}</p>`;
+    document.getElementById('source').textContent = json.source||'leaderboard.json';
+    document.getElementById('updated').textContent = json.updated_at ? new Date(json.updated_at).toLocaleString() : '-';
+    leaderboard = json.items||[];
+    showTab('pp');
+  } catch(err){
+    console.error(err);
   }
 }
 
-document.getElementById('search').addEventListener('input', () => { currentPage=1; updateLeaderboard(); });
-
 load();
-setInterval(load, 60000);
+setInterval(load, 3600000); // reload every hour
 </script>
 </body>
 </html>
