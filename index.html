@@ -9,15 +9,19 @@
     table { border-collapse: collapse; width: 100%; }
     th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
     th { background: #f4f4f4; }
+    img.avatar { width: 32px; height: 32px; border-radius: 50%; vertical-align: middle; margin-right: 8px; }
     .small { font-size: .9em; color: #666; }
   </style>
 </head>
 <body>
   <h1>Osu! Iraq Leaderboard</h1>
-  <p class="small">Auto-updated via GitHub Actions. Data for country <strong>IQ</strong>.</p>
-  <p>Last update: <span id="updated">-</span> — Source: <span id="source">leaderboard.json</span></p>
+  <p class="small">Auto-updated every hour via GitHub Actions. Using official osu! API v2.</p>
+  <p>Last update: <span id="updated">-</span></p>
+
   <table id="table" aria-live="polite">
-    <thead><tr><th>#</th><th>Username</th><th>Rank</th><th>Performance</th></tr></thead>
+    <thead>
+      <tr><th>#</th><th>User</th><th>Global Rank</th><th>PP</th></tr>
+    </thead>
     <tbody></tbody>
   </table>
 
@@ -25,30 +29,31 @@
     async function load() {
       try {
         const res = await fetch('leaderboard.json', {cache: "no-store"});
-        if (!res.ok) throw new Error('Could not fetch leaderboard.json');
         const json = await res.json();
-        document.getElementById('source').textContent = json.source || 'leaderboard.json';
-        const updated = json.updated_at ? new Date(json.updated_at).toLocaleString() : '-';
-        document.getElementById('updated').textContent = updated;
+
+        document.getElementById('updated').textContent =
+          json.updated_at ? new Date(json.updated_at).toLocaleString() : '-';
+
         const tbody = document.querySelector('#table tbody');
         tbody.innerHTML = '';
 
-        const items = (json.items && Array.isArray(json.items)) ? json.items : (json.data || []);
-        if (!Array.isArray(items) || items.length === 0) {
-          tbody.innerHTML = '<tr><td colspan="4">No data yet. Check Actions logs.</td></tr>';
-          return;
-        }
-
-        items.slice(0, 200).forEach((it, i) => {
-          const username = it.username || 'Unknown';
-          const rank = it.rank || (i+1);
-          const pp = it.pp || '-';
+        json.items.forEach((u, i) => {
           const tr = document.createElement('tr');
-          tr.innerHTML = `<td>${rank}</td><td>${username}</td><td>${rank}</td><td>${pp}</td>`;
+          tr.innerHTML = `
+            <td>${i + 1}</td>
+            <td>
+              <img src="${u.avatar_url}" class="avatar">
+              <a href="${u.profile_url}" target="_blank">${u.username}</a>
+            </td>
+            <td>#${u.rank ?? '-'}</td>
+            <td>${u.pp ?? '-'}</td>
+          `;
           tbody.appendChild(tr);
         });
+
       } catch (err) {
-        document.querySelector('#table tbody').innerHTML = `<tr><td colspan="4">Error: ${err.message}</td></tr>`;
+        document.querySelector('#table tbody').innerHTML =
+          `<tr><td colspan="4">Error: ${err.message}</td></tr>`;
       }
     }
 
