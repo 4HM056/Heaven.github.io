@@ -1,563 +1,458 @@
 {
-  "updated_at": 1765127385318,
+  "updated_at": "2025-12-07T18:31:54.428Z",
   "country": "IQ",
-  "data": {
-    "cursor": {
-      "page": 2
+  "source": "osu API v2",
+  "total": 50,
+  "items": [
+    {
+      "username": "L e n",
+      "user_id": 10286650,
+      "pp": 11530.1,
+      "rank": 3111,
+      "country_rank": 1,
+      "avatar_url": "https://a.ppy.sh/10286650?1760362691.jpeg",
+      "profile_url": "https://osu.ppy.sh/users/10286650"
     },
-    "cursor_string": "eyJwYWdlIjoyfQ",
-    "ranking": [
-      {
-        "code": "US",
-        "active_users": 388043,
-        "play_count": 2649398914,
-        "ranked_score": 513270886747528,
-        "performance": 1677061,
-        "country": {
-          "code": "US",
-          "name": "United States"
-        }
-      },
-      {
-        "code": "RU",
-        "active_users": 335569,
-        "play_count": 1697857885,
-        "ranked_score": 265518373169022,
-        "performance": 1463704,
-        "country": {
-          "code": "RU",
-          "name": "Russian Federation"
-        }
-      },
-      {
-        "code": "PL",
-        "active_users": 92258,
-        "play_count": 588965021,
-        "ranked_score": 111353990210499,
-        "performance": 1365618,
-        "country": {
-          "code": "PL",
-          "name": "Poland"
-        }
-      },
-      {
-        "code": "CA",
-        "active_users": 66151,
-        "play_count": 530229829,
-        "ranked_score": 107045498083480,
-        "performance": 1356403,
-        "country": {
-          "code": "CA",
-          "name": "Canada"
-        }
-      },
-      {
-        "code": "DE",
-        "active_users": 90157,
-        "play_count": 692689258,
-        "ranked_score": 156856229407103,
-        "performance": 1322190,
-        "country": {
-          "code": "DE",
-          "name": "Germany"
-        }
-      },
-      {
-        "code": "GB",
-        "active_users": 69693,
-        "play_count": 468607514,
-        "ranked_score": 93825432948622,
-        "performance": 1318311,
-        "country": {
-          "code": "GB",
-          "name": "United Kingdom"
-        }
-      },
-      {
-        "code": "KR",
-        "active_users": 32465,
-        "play_count": 204716684,
-        "ranked_score": 51385764204937,
-        "performance": 1302816,
-        "country": {
-          "code": "KR",
-          "name": "South Korea"
-        }
-      },
-      {
-        "code": "BR",
-        "active_users": 109022,
-        "play_count": 550496144,
-        "ranked_score": 81428080839696,
-        "performance": 1270871,
-        "country": {
-          "code": "BR",
-          "name": "Brazil"
-        }
-      },
-      {
-        "code": "AU",
-        "active_users": 42744,
-        "play_count": 309370425,
-        "ranked_score": 59917042083477,
-        "performance": 1266987,
-        "country": {
-          "code": "AU",
-          "name": "Australia"
-        }
-      },
-      {
-        "code": "FR",
-        "active_users": 98385,
-        "play_count": 553615858,
-        "ranked_score": 102681959847528,
-        "performance": 1245167,
-        "country": {
-          "code": "FR",
-          "name": "France"
-        }
-      },
-      {
-        "code": "JP",
-        "active_users": 122222,
-        "play_count": 572237881,
-        "ranked_score": 123061901091004,
-        "performance": 1220263,
-        "country": {
-          "code": "JP",
-          "name": "Japan"
-        }
-      },
-      {
-        "code": "PH",
-        "active_users": 78163,
-        "play_count": 515435720,
-        "ranked_score": 75566143512747,
-        "performance": 1177150,
-        "country": {
-          "code": "PH",
-          "name": "Philippines"
-        }
-      },
-      {
-        "code": "FI",
-        "active_users": 15861,
-        "play_count": 187655813,
-        "ranked_score": 42379491412498,
-        "performance": 1160872,
-        "country": {
-          "code": "FI",
-          "name": "Finland"
-        }
-      },
-      {
-        "code": "ID",
-        "active_users": 57290,
-        "play_count": 344656896,
-        "ranked_score": 63818407739180,
-        "performance": 1129143,
-        "country": {
-          "code": "ID",
-          "name": "Indonesia"
-        }
-      },
-      {
-        "code": "CL",
-        "active_users": 46830,
-        "play_count": 246614787,
-        "ranked_score": 38023783273750,
-        "performance": 1124362,
-        "country": {
-          "code": "CL",
-          "name": "Chile"
-        }
-      },
-      {
-        "code": "HK",
-        "active_users": 20537,
-        "play_count": 141580110,
-        "ranked_score": 33498143729808,
-        "performance": 1104988,
-        "country": {
-          "code": "HK",
-          "name": "Hong Kong"
-        }
-      },
-      {
-        "code": "CN",
-        "active_users": 68850,
-        "play_count": 225629355,
-        "ranked_score": 72963679323910,
-        "performance": 1090703,
-        "country": {
-          "code": "CN",
-          "name": "China"
-        }
-      },
-      {
-        "code": "UA",
-        "active_users": 59191,
-        "play_count": 290460358,
-        "ranked_score": 42227288507639,
-        "performance": 1085657,
-        "country": {
-          "code": "UA",
-          "name": "Ukraine"
-        }
-      },
-      {
-        "code": "TW",
-        "active_users": 51969,
-        "play_count": 302831796,
-        "ranked_score": 76530864697347,
-        "performance": 1077646,
-        "country": {
-          "code": "TW",
-          "name": "Taiwan"
-        }
-      },
-      {
-        "code": "SE",
-        "active_users": 14798,
-        "play_count": 140895893,
-        "ranked_score": 30410408818226,
-        "performance": 1075972,
-        "country": {
-          "code": "SE",
-          "name": "Sweden"
-        }
-      },
-      {
-        "code": "IT",
-        "active_users": 27642,
-        "play_count": 160312463,
-        "ranked_score": 28730080279604,
-        "performance": 1068614,
-        "country": {
-          "code": "IT",
-          "name": "Italy"
-        }
-      },
-      {
-        "code": "AR",
-        "active_users": 41925,
-        "play_count": 212723386,
-        "ranked_score": 33662409858224,
-        "performance": 1067987,
-        "country": {
-          "code": "AR",
-          "name": "Argentina"
-        }
-      },
-      {
-        "code": "TH",
-        "active_users": 40661,
-        "play_count": 190612268,
-        "ranked_score": 31522384047247,
-        "performance": 1061663,
-        "country": {
-          "code": "TH",
-          "name": "Thailand"
-        }
-      },
-      {
-        "code": "NL",
-        "active_users": 19005,
-        "play_count": 139676224,
-        "ranked_score": 32278297161073,
-        "performance": 1059212,
-        "country": {
-          "code": "NL",
-          "name": "Netherlands"
-        }
-      },
-      {
-        "code": "VN",
-        "active_users": 46729,
-        "play_count": 213650291,
-        "ranked_score": 36497013354155,
-        "performance": 1049054,
-        "country": {
-          "code": "VN",
-          "name": "Vietnam"
-        }
-      },
-      {
-        "code": "ES",
-        "active_users": 35025,
-        "play_count": 150345203,
-        "ranked_score": 23981478100688,
-        "performance": 1041740,
-        "country": {
-          "code": "ES",
-          "name": "Spain"
-        }
-      },
-      {
-        "code": "SG",
-        "active_users": 18127,
-        "play_count": 160661533,
-        "ranked_score": 32879300650224,
-        "performance": 1032464,
-        "country": {
-          "code": "SG",
-          "name": "Singapore"
-        }
-      },
-      {
-        "code": "NO",
-        "active_users": 7441,
-        "play_count": 83889248,
-        "ranked_score": 18917426676080,
-        "performance": 1028159,
-        "country": {
-          "code": "NO",
-          "name": "Norway"
-        }
-      },
-      {
-        "code": "MY",
-        "active_users": 33895,
-        "play_count": 227037685,
-        "ranked_score": 44353464736867,
-        "performance": 1028071,
-        "country": {
-          "code": "MY",
-          "name": "Malaysia"
-        }
-      },
-      {
-        "code": "MX",
-        "active_users": 55906,
-        "play_count": 206824977,
-        "ranked_score": 29389694838609,
-        "performance": 1016628,
-        "country": {
-          "code": "MX",
-          "name": "Mexico"
-        }
-      },
-      {
-        "code": "TR",
-        "active_users": 38354,
-        "play_count": 132716274,
-        "ranked_score": 18689147150298,
-        "performance": 987342,
-        "country": {
-          "code": "TR",
-          "name": "Türkiye"
-        }
-      },
-      {
-        "code": "NZ",
-        "active_users": 8040,
-        "play_count": 63003755,
-        "ranked_score": 13181806691924,
-        "performance": 977485,
-        "country": {
-          "code": "NZ",
-          "name": "New Zealand"
-        }
-      },
-      {
-        "code": "RO",
-        "active_users": 13835,
-        "play_count": 82068961,
-        "ranked_score": 15031658478066,
-        "performance": 976977,
-        "country": {
-          "code": "RO",
-          "name": "Romania"
-        }
-      },
-      {
-        "code": "CZ",
-        "active_users": 19319,
-        "play_count": 99135988,
-        "ranked_score": 18890154642417,
-        "performance": 963260,
-        "country": {
-          "code": "CZ",
-          "name": "Czechia"
-        }
-      },
-      {
-        "code": "KZ",
-        "active_users": 15945,
-        "play_count": 88176392,
-        "ranked_score": 14285948169659,
-        "performance": 948938,
-        "country": {
-          "code": "KZ",
-          "name": "Kazakhstan"
-        }
-      },
-      {
-        "code": "HU",
-        "active_users": 13693,
-        "play_count": 79693267,
-        "ranked_score": 14526625329900,
-        "performance": 942070,
-        "country": {
-          "code": "HU",
-          "name": "Hungary"
-        }
-      },
-      {
-        "code": "AT",
-        "active_users": 9628,
-        "play_count": 74994749,
-        "ranked_score": 16113432905987,
-        "performance": 935905,
-        "country": {
-          "code": "AT",
-          "name": "Austria"
-        }
-      },
-      {
-        "code": "DK",
-        "active_users": 5903,
-        "play_count": 55065339,
-        "ranked_score": 12115028094269,
-        "performance": 930794,
-        "country": {
-          "code": "DK",
-          "name": "Denmark"
-        }
-      },
-      {
-        "code": "LT",
-        "active_users": 8226,
-        "play_count": 62759901,
-        "ranked_score": 14309601735918,
-        "performance": 930595,
-        "country": {
-          "code": "LT",
-          "name": "Lithuania"
-        }
-      },
-      {
-        "code": "IL",
-        "active_users": 7887,
-        "play_count": 58043980,
-        "ranked_score": 9601626447834,
-        "performance": 928583,
-        "country": {
-          "code": "IL",
-          "name": "Israel"
-        }
-      },
-      {
-        "code": "PT",
-        "active_users": 11754,
-        "play_count": 76236212,
-        "ranked_score": 13245922170778,
-        "performance": 922582,
-        "country": {
-          "code": "PT",
-          "name": "Portugal"
-        }
-      },
-      {
-        "code": "BY",
-        "active_users": 19119,
-        "play_count": 89057969,
-        "ranked_score": 13698127706681,
-        "performance": 921416,
-        "country": {
-          "code": "BY",
-          "name": "Belarus"
-        }
-      },
-      {
-        "code": "BE",
-        "active_users": 12022,
-        "play_count": 72208227,
-        "ranked_score": 15727348505904,
-        "performance": 898230,
-        "country": {
-          "code": "BE",
-          "name": "Belgium"
-        }
-      },
-      {
-        "code": "PE",
-        "active_users": 29927,
-        "play_count": 117835645,
-        "ranked_score": 15564649126727,
-        "performance": 882318,
-        "country": {
-          "code": "PE",
-          "name": "Peru"
-        }
-      },
-      {
-        "code": "EE",
-        "active_users": 5482,
-        "play_count": 40672100,
-        "ranked_score": 8177163679431,
-        "performance": 862086,
-        "country": {
-          "code": "EE",
-          "name": "Estonia"
-        }
-      },
-      {
-        "code": "GR",
-        "active_users": 7442,
-        "play_count": 46806541,
-        "ranked_score": 8054236956530,
-        "performance": 857491,
-        "country": {
-          "code": "GR",
-          "name": "Greece"
-        }
-      },
-      {
-        "code": "SK",
-        "active_users": 6157,
-        "play_count": 36283891,
-        "ranked_score": 7083852882768,
-        "performance": 825132,
-        "country": {
-          "code": "SK",
-          "name": "Slovakia"
-        }
-      },
-      {
-        "code": "LV",
-        "active_users": 5949,
-        "play_count": 39335497,
-        "ranked_score": 7455415261474,
-        "performance": 814647,
-        "country": {
-          "code": "LV",
-          "name": "Latvia"
-        }
-      },
-      {
-        "code": "CH",
-        "active_users": 6878,
-        "play_count": 44989357,
-        "ranked_score": 10080597963880,
-        "performance": 814483,
-        "country": {
-          "code": "CH",
-          "name": "Switzerland"
-        }
-      },
-      {
-        "code": "BG",
-        "active_users": 6191,
-        "play_count": 38589452,
-        "ranked_score": 6701652493118,
-        "performance": 809686,
-        "country": {
-          "code": "BG",
-          "name": "Bulgaria"
-        }
-      }
-    ],
-    "total": 229
-  }
+    {
+      "username": "6xSeven",
+      "user_id": 29452442,
+      "pp": 9988.55,
+      "rank": 6885,
+      "country_rank": 2,
+      "avatar_url": "https://a.ppy.sh/29452442?1746190505.jpeg",
+      "profile_url": "https://osu.ppy.sh/users/29452442"
+    },
+    {
+      "username": "Ano_o3",
+      "user_id": 16626648,
+      "pp": 9749.59,
+      "rank": 7745,
+      "country_rank": 3,
+      "avatar_url": "https://a.ppy.sh/16626648?1764706405.png",
+      "profile_url": "https://osu.ppy.sh/users/16626648"
+    },
+    {
+      "username": "Y a d",
+      "user_id": 19521102,
+      "pp": 8840.38,
+      "rank": 12535,
+      "country_rank": 4,
+      "avatar_url": "https://a.ppy.sh/19521102?1735975550.jpeg",
+      "profile_url": "https://osu.ppy.sh/users/19521102"
+    },
+    {
+      "username": "ciru bmi 42",
+      "user_id": 11530725,
+      "pp": 8806.59,
+      "rank": 12744,
+      "country_rank": 5,
+      "avatar_url": "https://a.ppy.sh/11530725?1676084356.gif",
+      "profile_url": "https://osu.ppy.sh/users/11530725"
+    },
+    {
+      "username": "Boiled_Aids",
+      "user_id": 11706528,
+      "pp": 8633.33,
+      "rank": 13993,
+      "country_rank": 6,
+      "avatar_url": "https://a.ppy.sh/11706528?1732803479.jpeg",
+      "profile_url": "https://osu.ppy.sh/users/11706528"
+    },
+    {
+      "username": "ILOVEOSUTEAM",
+      "user_id": 20112002,
+      "pp": 8090.23,
+      "rank": 18542,
+      "country_rank": 7,
+      "avatar_url": "https://a.ppy.sh/20112002?1746242562.jpeg",
+      "profile_url": "https://osu.ppy.sh/users/20112002"
+    },
+    {
+      "username": "ghoul534",
+      "user_id": 24991953,
+      "pp": 8068.64,
+      "rank": 18752,
+      "country_rank": 8,
+      "avatar_url": "https://a.ppy.sh/24991953?1747400265.png",
+      "profile_url": "https://osu.ppy.sh/users/24991953"
+    },
+    {
+      "username": "Biscuits0",
+      "user_id": 23843313,
+      "pp": 7841.11,
+      "rank": 20970,
+      "country_rank": 9,
+      "avatar_url": "https://a.ppy.sh/23843313?1761953627.jpeg",
+      "profile_url": "https://osu.ppy.sh/users/23843313"
+    },
+    {
+      "username": "_GhosTy",
+      "user_id": 10838466,
+      "pp": 7142.77,
+      "rank": 30641,
+      "country_rank": 10,
+      "avatar_url": "https://a.ppy.sh/10838466?1692651303.jpeg",
+      "profile_url": "https://osu.ppy.sh/users/10838466"
+    },
+    {
+      "username": "braa_pro",
+      "user_id": 23325783,
+      "pp": 6781.06,
+      "rank": 37128,
+      "country_rank": 11,
+      "avatar_url": "https://a.ppy.sh/23325783?1693843451.jpeg",
+      "profile_url": "https://osu.ppy.sh/users/23325783"
+    },
+    {
+      "username": "Kamioo",
+      "user_id": 19494788,
+      "pp": 6529.92,
+      "rank": 42593,
+      "country_rank": 12,
+      "avatar_url": "https://a.ppy.sh/19494788?1745248414.jpeg",
+      "profile_url": "https://osu.ppy.sh/users/19494788"
+    },
+    {
+      "username": "-Kirb",
+      "user_id": 20594867,
+      "pp": 6475.05,
+      "rank": 43943,
+      "country_rank": 13,
+      "avatar_url": "https://a.ppy.sh/20594867?1646325985.jpeg",
+      "profile_url": "https://osu.ppy.sh/users/20594867"
+    },
+    {
+      "username": "Sola",
+      "user_id": 12357263,
+      "pp": 6408.92,
+      "rank": 45524,
+      "country_rank": 14,
+      "avatar_url": "https://a.ppy.sh/12357263?1737952952.jpeg",
+      "profile_url": "https://osu.ppy.sh/users/12357263"
+    },
+    {
+      "username": "MustafaAARaheem",
+      "user_id": 12403623,
+      "pp": 6406.75,
+      "rank": 45575,
+      "country_rank": 15,
+      "avatar_url": "https://a.ppy.sh/12403623?1722861161.jpeg",
+      "profile_url": "https://osu.ppy.sh/users/12403623"
+    },
+    {
+      "username": "- Mort -",
+      "user_id": 13415775,
+      "pp": 6363.46,
+      "rank": 46625,
+      "country_rank": 16,
+      "avatar_url": "https://a.ppy.sh/13415775?1671393056.gif",
+      "profile_url": "https://osu.ppy.sh/users/13415775"
+    },
+    {
+      "username": "Owl_727",
+      "user_id": 23830344,
+      "pp": 6142.4,
+      "rank": 52645,
+      "country_rank": 17,
+      "avatar_url": "https://a.ppy.sh/23830344?1746625801.jpeg",
+      "profile_url": "https://osu.ppy.sh/users/23830344"
+    },
+    {
+      "username": "0ilen",
+      "user_id": 25015591,
+      "pp": 6088.95,
+      "rank": 54196,
+      "country_rank": 18,
+      "avatar_url": "https://a.ppy.sh/25015591?1749424356.jpeg",
+      "profile_url": "https://osu.ppy.sh/users/25015591"
+    },
+    {
+      "username": "Meaco",
+      "user_id": 32837861,
+      "pp": 6067.98,
+      "rank": 54767,
+      "country_rank": 19,
+      "avatar_url": "https://a.ppy.sh/32837861?1763255769.jpeg",
+      "profile_url": "https://osu.ppy.sh/users/32837861"
+    },
+    {
+      "username": "Ali Ahmed",
+      "user_id": 13542355,
+      "pp": 5954.32,
+      "rank": 58156,
+      "country_rank": 20,
+      "avatar_url": "https://a.ppy.sh/13542355?1614288985.jpeg",
+      "profile_url": "https://osu.ppy.sh/users/13542355"
+    },
+    {
+      "username": "Kaiju13",
+      "user_id": 26916963,
+      "pp": 5689.81,
+      "rank": 67047,
+      "country_rank": 21,
+      "avatar_url": "https://a.ppy.sh/26916963?1762375518.png",
+      "profile_url": "https://osu.ppy.sh/users/26916963"
+    },
+    {
+      "username": "DxD_2",
+      "user_id": 18392868,
+      "pp": 5404.38,
+      "rank": 78523,
+      "country_rank": 22,
+      "avatar_url": "https://a.ppy.sh/18392868?1635476047.jpeg",
+      "profile_url": "https://osu.ppy.sh/users/18392868"
+    },
+    {
+      "username": "zero702",
+      "user_id": 25897488,
+      "pp": 5351.52,
+      "rank": 80875,
+      "country_rank": 23,
+      "avatar_url": "https://a.ppy.sh/25897488?1726932553.jpeg",
+      "profile_url": "https://osu.ppy.sh/users/25897488"
+    },
+    {
+      "username": "iTesko",
+      "user_id": 30284199,
+      "pp": 5252.68,
+      "rank": 85327,
+      "country_rank": 24,
+      "avatar_url": "https://a.ppy.sh/30284199?1714237605.jpeg",
+      "profile_url": "https://osu.ppy.sh/users/30284199"
+    },
+    {
+      "username": "zeno_",
+      "user_id": 25313184,
+      "pp": 5241.83,
+      "rank": 85788,
+      "country_rank": 25,
+      "avatar_url": "https://a.ppy.sh/25313184?1689762472.jpeg",
+      "profile_url": "https://osu.ppy.sh/users/25313184"
+    },
+    {
+      "username": "LilyNightMoon",
+      "user_id": 18771081,
+      "pp": 5209.92,
+      "rank": 87309,
+      "country_rank": 26,
+      "avatar_url": "https://a.ppy.sh/18771081?1750451975.jpeg",
+      "profile_url": "https://osu.ppy.sh/users/18771081"
+    },
+    {
+      "username": "Dash_9274",
+      "user_id": 13289058,
+      "pp": 5092.62,
+      "rank": 93051,
+      "country_rank": 27,
+      "avatar_url": "https://a.ppy.sh/13289058?1694613073.jpeg",
+      "profile_url": "https://osu.ppy.sh/users/13289058"
+    },
+    {
+      "username": "kaorisnpai7",
+      "user_id": 35628991,
+      "pp": 5025.94,
+      "rank": 96554,
+      "country_rank": 28,
+      "avatar_url": "https://a.ppy.sh/35628991?1711289091.jpeg",
+      "profile_url": "https://osu.ppy.sh/users/35628991"
+    },
+    {
+      "username": "h5n",
+      "user_id": 14339730,
+      "pp": 4958.26,
+      "rank": 100133,
+      "country_rank": 29,
+      "avatar_url": "https://a.ppy.sh/14339730?1632848127.gif",
+      "profile_url": "https://osu.ppy.sh/users/14339730"
+    },
+    {
+      "username": "Vector5g",
+      "user_id": 15021013,
+      "pp": 4925.25,
+      "rank": 101871,
+      "country_rank": 30,
+      "avatar_url": "https://a.ppy.sh/15021013?1715586516.jpeg",
+      "profile_url": "https://osu.ppy.sh/users/15021013"
+    },
+    {
+      "username": "kartel",
+      "user_id": 16368385,
+      "pp": 4903.85,
+      "rank": 102982,
+      "country_rank": 31,
+      "avatar_url": "https://a.ppy.sh/16368385?1635620370.jpeg",
+      "profile_url": "https://osu.ppy.sh/users/16368385"
+    },
+    {
+      "username": "Zander4K",
+      "user_id": 11704059,
+      "pp": 4842.39,
+      "rank": 106124,
+      "country_rank": 32,
+      "avatar_url": "https://a.ppy.sh/11704059?1652908218.jpeg",
+      "profile_url": "https://osu.ppy.sh/users/11704059"
+    },
+    {
+      "username": "YaBoiJaafar",
+      "user_id": 21651560,
+      "pp": 4679.07,
+      "rank": 115206,
+      "country_rank": 33,
+      "avatar_url": "https://a.ppy.sh/21651560?1620296371.jpeg",
+      "profile_url": "https://osu.ppy.sh/users/21651560"
+    },
+    {
+      "username": "Bappo_1337",
+      "user_id": 21688901,
+      "pp": 4670.32,
+      "rank": 115695,
+      "country_rank": 34,
+      "avatar_url": "https://a.ppy.sh/21688901?1756738715.jpeg",
+      "profile_url": "https://osu.ppy.sh/users/21688901"
+    },
+    {
+      "username": "1_7amza",
+      "user_id": 16857190,
+      "pp": 4505.38,
+      "rank": 125638,
+      "country_rank": 35,
+      "avatar_url": "https://a.ppy.sh/16857190?1697380528.jpeg",
+      "profile_url": "https://osu.ppy.sh/users/16857190"
+    },
+    {
+      "username": "Araizo",
+      "user_id": 12020201,
+      "pp": 4420.11,
+      "rank": 131140,
+      "country_rank": 36,
+      "avatar_url": "https://a.ppy.sh/12020201?1592979616.jpeg",
+      "profile_url": "https://osu.ppy.sh/users/12020201"
+    },
+    {
+      "username": "-Leno",
+      "user_id": 17936461,
+      "pp": 4409.87,
+      "rank": 131825,
+      "country_rank": 37,
+      "avatar_url": "https://a.ppy.sh/17936461?1740894988.jpeg",
+      "profile_url": "https://osu.ppy.sh/users/17936461"
+    },
+    {
+      "username": "Zendrad",
+      "user_id": 11961657,
+      "pp": 4375.21,
+      "rank": 134111,
+      "country_rank": 38,
+      "avatar_url": "https://a.ppy.sh/11961657?1580758132.jpeg",
+      "profile_url": "https://osu.ppy.sh/users/11961657"
+    },
+    {
+      "username": "greev",
+      "user_id": 12828984,
+      "pp": 4365.26,
+      "rank": 134777,
+      "country_rank": 39,
+      "avatar_url": "https://a.ppy.sh/12828984?1630106713.jpeg",
+      "profile_url": "https://osu.ppy.sh/users/12828984"
+    },
+    {
+      "username": "7mza_zx",
+      "user_id": 19610931,
+      "pp": 4358.85,
+      "rank": 135225,
+      "country_rank": 40,
+      "avatar_url": "https://a.ppy.sh/19610931?1747833809.jpeg",
+      "profile_url": "https://osu.ppy.sh/users/19610931"
+    },
+    {
+      "username": "Slyryan",
+      "user_id": 16593075,
+      "pp": 4290.81,
+      "rank": 139876,
+      "country_rank": 41,
+      "avatar_url": "https://a.ppy.sh/16593075?1692063203.gif",
+      "profile_url": "https://osu.ppy.sh/users/16593075"
+    },
+    {
+      "username": "ginseng",
+      "user_id": 13005244,
+      "pp": 4283.85,
+      "rank": 140332,
+      "country_rank": 42,
+      "avatar_url": "https://a.ppy.sh/13005244?1742379598.jpeg",
+      "profile_url": "https://osu.ppy.sh/users/13005244"
+    },
+    {
+      "username": "ShadowBladee2k",
+      "user_id": 12756911,
+      "pp": 4090.32,
+      "rank": 154687,
+      "country_rank": 43,
+      "avatar_url": "https://a.ppy.sh/12756911?1631298759.jpeg",
+      "profile_url": "https://osu.ppy.sh/users/12756911"
+    },
+    {
+      "username": "Quake203",
+      "user_id": 22846495,
+      "pp": 3999.72,
+      "rank": 161824,
+      "country_rank": 44,
+      "avatar_url": "https://a.ppy.sh/22846495?1739300071.jpeg",
+      "profile_url": "https://osu.ppy.sh/users/22846495"
+    },
+    {
+      "username": "The Nerd Sacc",
+      "user_id": 20588182,
+      "pp": 3922.78,
+      "rank": 168024,
+      "country_rank": 45,
+      "avatar_url": "https://a.ppy.sh/20588182?1764901620.jpeg",
+      "profile_url": "https://osu.ppy.sh/users/20588182"
+    },
+    {
+      "username": "MoNsTAR22",
+      "user_id": 10876278,
+      "pp": 3840.78,
+      "rank": 174981,
+      "country_rank": 46,
+      "avatar_url": "https://a.ppy.sh/10876278?1750718602.jpeg",
+      "profile_url": "https://osu.ppy.sh/users/10876278"
+    },
+    {
+      "username": "po11op",
+      "user_id": 36738602,
+      "pp": 3837.45,
+      "rank": 175251,
+      "country_rank": 47,
+      "avatar_url": "https://a.ppy.sh/36738602?1740343348.jpeg",
+      "profile_url": "https://osu.ppy.sh/users/36738602"
+    },
+    {
+      "username": "Ramris",
+      "user_id": 14515694,
+      "pp": 3809.44,
+      "rank": 177761,
+      "country_rank": 48,
+      "avatar_url": "https://a.ppy.sh/14515694?1572859426.jpeg",
+      "profile_url": "https://osu.ppy.sh/users/14515694"
+    },
+    {
+      "username": "saksokse",
+      "user_id": 30691917,
+      "pp": 3747.94,
+      "rank": 183239,
+      "country_rank": 49,
+      "avatar_url": "https://a.ppy.sh/30691917?1678673120.jpeg",
+      "profile_url": "https://osu.ppy.sh/users/30691917"
+    },
+    {
+      "username": "Andr0_Meda",
+      "user_id": 7376292,
+      "pp": 3747.85,
+      "rank": 183223,
+      "country_rank": 50,
+      "avatar_url": "https://a.ppy.sh/7376292?1596478605.jpeg",
+      "profile_url": "https://osu.ppy.sh/users/7376292"
+    }
+  ]
 }
