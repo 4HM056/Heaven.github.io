@@ -1,5 +1,5 @@
 {
-  "updated_at": "2025-12-07T20:14:16.204Z",
+  "updated_at": "2025-12-07T20:20:24.548Z",
   "country": "IQ",
   "source": "osu API v2",
   "total": 50,
@@ -7,502 +7,452 @@
     {
       "username": "L e n",
       "user_id": 10286650,
-      "pp": 11530.1,
+      "ranked_score": 22159255557,
       "play_count": 106622,
-      "global_rank": 3111,
-      "country_rank": 1,
       "avatar_url": "https://a.ppy.sh/10286650?1760362691.jpeg",
-      "profile_url": "https://osu.ppy.sh/users/10286650"
+      "profile_url": "https://osu.ppy.sh/users/10286650",
+      "country_rank": 1
     },
     {
       "username": "6xSeven",
       "user_id": 29452442,
-      "pp": 9988.55,
+      "ranked_score": 20207019025,
       "play_count": 75642,
-      "global_rank": 6885,
-      "country_rank": 2,
       "avatar_url": "https://a.ppy.sh/29452442?1746190505.jpeg",
-      "profile_url": "https://osu.ppy.sh/users/29452442"
+      "profile_url": "https://osu.ppy.sh/users/29452442",
+      "country_rank": 2
     },
     {
       "username": "Ano_o3",
       "user_id": 16626648,
-      "pp": 9749.59,
+      "ranked_score": 44711418207,
       "play_count": 82264,
-      "global_rank": 7745,
-      "country_rank": 3,
       "avatar_url": "https://a.ppy.sh/16626648?1764706405.png",
-      "profile_url": "https://osu.ppy.sh/users/16626648"
+      "profile_url": "https://osu.ppy.sh/users/16626648",
+      "country_rank": 3
     },
     {
       "username": "Y a d",
       "user_id": 19521102,
-      "pp": 8840.38,
+      "ranked_score": 25481523762,
       "play_count": 202629,
-      "global_rank": 12535,
-      "country_rank": 4,
       "avatar_url": "https://a.ppy.sh/19521102?1735975550.jpeg",
-      "profile_url": "https://osu.ppy.sh/users/19521102"
+      "profile_url": "https://osu.ppy.sh/users/19521102",
+      "country_rank": 4
     },
     {
       "username": "ciru bmi 42",
       "user_id": 11530725,
-      "pp": 8806.59,
+      "ranked_score": 13081222915,
       "play_count": 99562,
-      "global_rank": 12744,
-      "country_rank": 5,
       "avatar_url": "https://a.ppy.sh/11530725?1676084356.gif",
-      "profile_url": "https://osu.ppy.sh/users/11530725"
+      "profile_url": "https://osu.ppy.sh/users/11530725",
+      "country_rank": 5
     },
     {
       "username": "Boiled_Aids",
       "user_id": 11706528,
-      "pp": 8633.33,
+      "ranked_score": 18900553835,
       "play_count": 90700,
-      "global_rank": 13993,
-      "country_rank": 6,
       "avatar_url": "https://a.ppy.sh/11706528?1732803479.jpeg",
-      "profile_url": "https://osu.ppy.sh/users/11706528"
+      "profile_url": "https://osu.ppy.sh/users/11706528",
+      "country_rank": 6
     },
     {
       "username": "ILOVEOSUTEAM",
       "user_id": 20112002,
-      "pp": 8090.23,
+      "ranked_score": 9154472476,
       "play_count": 68539,
-      "global_rank": 18542,
-      "country_rank": 7,
       "avatar_url": "https://a.ppy.sh/20112002?1746242562.jpeg",
-      "profile_url": "https://osu.ppy.sh/users/20112002"
+      "profile_url": "https://osu.ppy.sh/users/20112002",
+      "country_rank": 7
     },
     {
       "username": "ghoul534",
       "user_id": 24991953,
-      "pp": 8068.64,
+      "ranked_score": 5158548150,
       "play_count": 57419,
-      "global_rank": 18752,
-      "country_rank": 8,
       "avatar_url": "https://a.ppy.sh/24991953?1747400265.png",
-      "profile_url": "https://osu.ppy.sh/users/24991953"
+      "profile_url": "https://osu.ppy.sh/users/24991953",
+      "country_rank": 8
     },
     {
       "username": "Biscuits0",
       "user_id": 23843313,
-      "pp": 7841.11,
+      "ranked_score": 22651757931,
       "play_count": 68119,
-      "global_rank": 20970,
-      "country_rank": 9,
       "avatar_url": "https://a.ppy.sh/23843313?1761953627.jpeg",
-      "profile_url": "https://osu.ppy.sh/users/23843313"
+      "profile_url": "https://osu.ppy.sh/users/23843313",
+      "country_rank": 9
     },
     {
       "username": "_GhosTy",
       "user_id": 10838466,
-      "pp": 7142.77,
+      "ranked_score": 11642753324,
       "play_count": 106996,
-      "global_rank": 30641,
-      "country_rank": 10,
       "avatar_url": "https://a.ppy.sh/10838466?1692651303.jpeg",
-      "profile_url": "https://osu.ppy.sh/users/10838466"
+      "profile_url": "https://osu.ppy.sh/users/10838466",
+      "country_rank": 10
     },
     {
       "username": "braa_pro",
       "user_id": 23325783,
-      "pp": 6781.06,
+      "ranked_score": 7204119618,
       "play_count": 131546,
-      "global_rank": 37128,
-      "country_rank": 11,
       "avatar_url": "https://a.ppy.sh/23325783?1693843451.jpeg",
-      "profile_url": "https://osu.ppy.sh/users/23325783"
+      "profile_url": "https://osu.ppy.sh/users/23325783",
+      "country_rank": 11
     },
     {
       "username": "Kamioo",
       "user_id": 19494788,
-      "pp": 6529.92,
+      "ranked_score": 5787341231,
       "play_count": 34841,
-      "global_rank": 42593,
-      "country_rank": 12,
       "avatar_url": "https://a.ppy.sh/19494788?1745248414.jpeg",
-      "profile_url": "https://osu.ppy.sh/users/19494788"
+      "profile_url": "https://osu.ppy.sh/users/19494788",
+      "country_rank": 12
     },
     {
       "username": "-Kirb",
       "user_id": 20594867,
-      "pp": 6475.05,
+      "ranked_score": 4017096468,
       "play_count": 27665,
-      "global_rank": 43943,
-      "country_rank": 13,
       "avatar_url": "https://a.ppy.sh/20594867?1646325985.jpeg",
-      "profile_url": "https://osu.ppy.sh/users/20594867"
+      "profile_url": "https://osu.ppy.sh/users/20594867",
+      "country_rank": 13
     },
     {
       "username": "Sola",
       "user_id": 12357263,
-      "pp": 6408.92,
+      "ranked_score": 9777368396,
       "play_count": 71297,
-      "global_rank": 45524,
-      "country_rank": 14,
       "avatar_url": "https://a.ppy.sh/12357263?1737952952.jpeg",
-      "profile_url": "https://osu.ppy.sh/users/12357263"
+      "profile_url": "https://osu.ppy.sh/users/12357263",
+      "country_rank": 14
     },
     {
       "username": "MustafaAARaheem",
       "user_id": 12403623,
-      "pp": 6406.75,
+      "ranked_score": 9567983195,
       "play_count": 34947,
-      "global_rank": 45575,
-      "country_rank": 15,
       "avatar_url": "https://a.ppy.sh/12403623?1722861161.jpeg",
-      "profile_url": "https://osu.ppy.sh/users/12403623"
+      "profile_url": "https://osu.ppy.sh/users/12403623",
+      "country_rank": 15
     },
     {
       "username": "- Mort -",
       "user_id": 13415775,
-      "pp": 6363.46,
+      "ranked_score": 18667542551,
       "play_count": 81509,
-      "global_rank": 46625,
-      "country_rank": 16,
       "avatar_url": "https://a.ppy.sh/13415775?1671393056.gif",
-      "profile_url": "https://osu.ppy.sh/users/13415775"
+      "profile_url": "https://osu.ppy.sh/users/13415775",
+      "country_rank": 16
     },
     {
       "username": "Owl_727",
       "user_id": 23830344,
-      "pp": 6142.4,
+      "ranked_score": 14733064842,
       "play_count": 70283,
-      "global_rank": 52645,
-      "country_rank": 17,
       "avatar_url": "https://a.ppy.sh/23830344?1746625801.jpeg",
-      "profile_url": "https://osu.ppy.sh/users/23830344"
+      "profile_url": "https://osu.ppy.sh/users/23830344",
+      "country_rank": 17
     },
     {
       "username": "0ilen",
       "user_id": 25015591,
-      "pp": 6088.95,
+      "ranked_score": 3724190418,
       "play_count": 16298,
-      "global_rank": 54196,
-      "country_rank": 18,
       "avatar_url": "https://a.ppy.sh/25015591?1749424356.jpeg",
-      "profile_url": "https://osu.ppy.sh/users/25015591"
+      "profile_url": "https://osu.ppy.sh/users/25015591",
+      "country_rank": 18
     },
     {
       "username": "Meaco",
       "user_id": 32837861,
-      "pp": 6067.98,
+      "ranked_score": 6724621479,
       "play_count": 66302,
-      "global_rank": 54767,
-      "country_rank": 19,
       "avatar_url": "https://a.ppy.sh/32837861?1763255769.jpeg",
-      "profile_url": "https://osu.ppy.sh/users/32837861"
+      "profile_url": "https://osu.ppy.sh/users/32837861",
+      "country_rank": 19
     },
     {
       "username": "Ali Ahmed",
       "user_id": 13542355,
-      "pp": 5954.32,
+      "ranked_score": 4581933946,
       "play_count": 51583,
-      "global_rank": 58156,
-      "country_rank": 20,
       "avatar_url": "https://a.ppy.sh/13542355?1614288985.jpeg",
-      "profile_url": "https://osu.ppy.sh/users/13542355"
+      "profile_url": "https://osu.ppy.sh/users/13542355",
+      "country_rank": 20
     },
     {
       "username": "Kaiju13",
       "user_id": 26916963,
-      "pp": 5689.81,
+      "ranked_score": 4755211517,
       "play_count": 37194,
-      "global_rank": 67047,
-      "country_rank": 21,
       "avatar_url": "https://a.ppy.sh/26916963?1762375518.png",
-      "profile_url": "https://osu.ppy.sh/users/26916963"
+      "profile_url": "https://osu.ppy.sh/users/26916963",
+      "country_rank": 21
     },
     {
       "username": "DxD_2",
       "user_id": 18392868,
-      "pp": 5404.38,
+      "ranked_score": 6268826747,
       "play_count": 55499,
-      "global_rank": 78523,
-      "country_rank": 22,
       "avatar_url": "https://a.ppy.sh/18392868?1635476047.jpeg",
-      "profile_url": "https://osu.ppy.sh/users/18392868"
+      "profile_url": "https://osu.ppy.sh/users/18392868",
+      "country_rank": 22
     },
     {
       "username": "zero702",
       "user_id": 25897488,
-      "pp": 5351.52,
+      "ranked_score": 2987527539,
       "play_count": 27713,
-      "global_rank": 80875,
-      "country_rank": 23,
       "avatar_url": "https://a.ppy.sh/25897488?1726932553.jpeg",
-      "profile_url": "https://osu.ppy.sh/users/25897488"
+      "profile_url": "https://osu.ppy.sh/users/25897488",
+      "country_rank": 23
     },
     {
       "username": "iTesko",
       "user_id": 30284199,
-      "pp": 5252.68,
+      "ranked_score": 12794486671,
       "play_count": 29846,
-      "global_rank": 85327,
-      "country_rank": 24,
       "avatar_url": "https://a.ppy.sh/30284199?1714237605.jpeg",
-      "profile_url": "https://osu.ppy.sh/users/30284199"
+      "profile_url": "https://osu.ppy.sh/users/30284199",
+      "country_rank": 24
     },
     {
       "username": "zeno_",
       "user_id": 25313184,
-      "pp": 5241.83,
+      "ranked_score": 5499065936,
       "play_count": 45954,
-      "global_rank": 85788,
-      "country_rank": 25,
       "avatar_url": "https://a.ppy.sh/25313184?1689762472.jpeg",
-      "profile_url": "https://osu.ppy.sh/users/25313184"
+      "profile_url": "https://osu.ppy.sh/users/25313184",
+      "country_rank": 25
     },
     {
       "username": "LilyNightMoon",
       "user_id": 18771081,
-      "pp": 5209.92,
+      "ranked_score": 5440978032,
       "play_count": 57440,
-      "global_rank": 87309,
-      "country_rank": 26,
       "avatar_url": "https://a.ppy.sh/18771081?1750451975.jpeg",
-      "profile_url": "https://osu.ppy.sh/users/18771081"
+      "profile_url": "https://osu.ppy.sh/users/18771081",
+      "country_rank": 26
     },
     {
       "username": "Dash_9274",
       "user_id": 13289058,
-      "pp": 5092.62,
+      "ranked_score": 5133752635,
       "play_count": 29004,
-      "global_rank": 93051,
-      "country_rank": 27,
       "avatar_url": "https://a.ppy.sh/13289058?1694613073.jpeg",
-      "profile_url": "https://osu.ppy.sh/users/13289058"
+      "profile_url": "https://osu.ppy.sh/users/13289058",
+      "country_rank": 27
     },
     {
       "username": "kaorisnpai7",
       "user_id": 35628991,
-      "pp": 5025.94,
+      "ranked_score": 7055294340,
       "play_count": 3834,
-      "global_rank": 96554,
-      "country_rank": 28,
       "avatar_url": "https://a.ppy.sh/35628991?1711289091.jpeg",
-      "profile_url": "https://osu.ppy.sh/users/35628991"
+      "profile_url": "https://osu.ppy.sh/users/35628991",
+      "country_rank": 28
     },
     {
       "username": "h5n",
       "user_id": 14339730,
-      "pp": 4958.26,
+      "ranked_score": 1310796089,
       "play_count": 32431,
-      "global_rank": 100133,
-      "country_rank": 29,
       "avatar_url": "https://a.ppy.sh/14339730?1632848127.gif",
-      "profile_url": "https://osu.ppy.sh/users/14339730"
+      "profile_url": "https://osu.ppy.sh/users/14339730",
+      "country_rank": 29
     },
     {
       "username": "Vector5g",
       "user_id": 15021013,
-      "pp": 4925.25,
+      "ranked_score": 29177593173,
       "play_count": 77804,
-      "global_rank": 101871,
-      "country_rank": 30,
       "avatar_url": "https://a.ppy.sh/15021013?1715586516.jpeg",
-      "profile_url": "https://osu.ppy.sh/users/15021013"
+      "profile_url": "https://osu.ppy.sh/users/15021013",
+      "country_rank": 30
     },
     {
       "username": "kartel",
       "user_id": 16368385,
-      "pp": 4903.85,
+      "ranked_score": 12205130856,
       "play_count": 48125,
-      "global_rank": 102989,
-      "country_rank": 31,
       "avatar_url": "https://a.ppy.sh/16368385?1635620370.jpeg",
-      "profile_url": "https://osu.ppy.sh/users/16368385"
+      "profile_url": "https://osu.ppy.sh/users/16368385",
+      "country_rank": 31
     },
     {
       "username": "Zander4K",
       "user_id": 11704059,
-      "pp": 4842.39,
+      "ranked_score": 2910190457,
       "play_count": 40974,
-      "global_rank": 106124,
-      "country_rank": 32,
       "avatar_url": "https://a.ppy.sh/11704059?1652908218.jpeg",
-      "profile_url": "https://osu.ppy.sh/users/11704059"
+      "profile_url": "https://osu.ppy.sh/users/11704059",
+      "country_rank": 32
     },
     {
       "username": "YaBoiJaafar",
       "user_id": 21651560,
-      "pp": 4679.07,
+      "ranked_score": 2454865716,
       "play_count": 24276,
-      "global_rank": 115206,
-      "country_rank": 33,
       "avatar_url": "https://a.ppy.sh/21651560?1620296371.jpeg",
-      "profile_url": "https://osu.ppy.sh/users/21651560"
+      "profile_url": "https://osu.ppy.sh/users/21651560",
+      "country_rank": 33
     },
     {
       "username": "Bappo_1337",
       "user_id": 21688901,
-      "pp": 4670.32,
+      "ranked_score": 3069553774,
       "play_count": 44914,
-      "global_rank": 115695,
-      "country_rank": 34,
       "avatar_url": "https://a.ppy.sh/21688901?1756738715.jpeg",
-      "profile_url": "https://osu.ppy.sh/users/21688901"
+      "profile_url": "https://osu.ppy.sh/users/21688901",
+      "country_rank": 34
     },
     {
       "username": "1_7amza",
       "user_id": 16857190,
-      "pp": 4505.38,
+      "ranked_score": 3007184399,
       "play_count": 59488,
-      "global_rank": 125638,
-      "country_rank": 35,
       "avatar_url": "https://a.ppy.sh/16857190?1697380528.jpeg",
-      "profile_url": "https://osu.ppy.sh/users/16857190"
+      "profile_url": "https://osu.ppy.sh/users/16857190",
+      "country_rank": 35
     },
     {
       "username": "Araizo",
       "user_id": 12020201,
-      "pp": 4420.11,
+      "ranked_score": 4041648102,
       "play_count": 27024,
-      "global_rank": 131140,
-      "country_rank": 36,
       "avatar_url": "https://a.ppy.sh/12020201?1592979616.jpeg",
-      "profile_url": "https://osu.ppy.sh/users/12020201"
+      "profile_url": "https://osu.ppy.sh/users/12020201",
+      "country_rank": 36
     },
     {
       "username": "-Leno",
       "user_id": 17936461,
-      "pp": 4409.87,
+      "ranked_score": 6236773170,
       "play_count": 13534,
-      "global_rank": 131825,
-      "country_rank": 37,
       "avatar_url": "https://a.ppy.sh/17936461?1740894988.jpeg",
-      "profile_url": "https://osu.ppy.sh/users/17936461"
+      "profile_url": "https://osu.ppy.sh/users/17936461",
+      "country_rank": 37
     },
     {
       "username": "Zendrad",
       "user_id": 11961657,
-      "pp": 4375.21,
+      "ranked_score": 6914231718,
       "play_count": 40675,
-      "global_rank": 134111,
-      "country_rank": 38,
       "avatar_url": "https://a.ppy.sh/11961657?1580758132.jpeg",
-      "profile_url": "https://osu.ppy.sh/users/11961657"
+      "profile_url": "https://osu.ppy.sh/users/11961657",
+      "country_rank": 38
     },
     {
       "username": "greev",
       "user_id": 12828984,
-      "pp": 4365.26,
+      "ranked_score": 5174684153,
       "play_count": 52635,
-      "global_rank": 134777,
-      "country_rank": 39,
       "avatar_url": "https://a.ppy.sh/12828984?1630106713.jpeg",
-      "profile_url": "https://osu.ppy.sh/users/12828984"
+      "profile_url": "https://osu.ppy.sh/users/12828984",
+      "country_rank": 39
     },
     {
       "username": "7mza_zx",
       "user_id": 19610931,
-      "pp": 4358.85,
+      "ranked_score": 6164122025,
       "play_count": 27313,
-      "global_rank": 135225,
-      "country_rank": 40,
       "avatar_url": "https://a.ppy.sh/19610931?1747833809.jpeg",
-      "profile_url": "https://osu.ppy.sh/users/19610931"
+      "profile_url": "https://osu.ppy.sh/users/19610931",
+      "country_rank": 40
     },
     {
       "username": "Slyryan",
       "user_id": 16593075,
-      "pp": 4290.81,
+      "ranked_score": 4207635487,
       "play_count": 26456,
-      "global_rank": 139876,
-      "country_rank": 41,
       "avatar_url": "https://a.ppy.sh/16593075?1692063203.gif",
-      "profile_url": "https://osu.ppy.sh/users/16593075"
+      "profile_url": "https://osu.ppy.sh/users/16593075",
+      "country_rank": 41
     },
     {
       "username": "ginseng",
       "user_id": 13005244,
-      "pp": 4283.85,
+      "ranked_score": 1566061656,
       "play_count": 19987,
-      "global_rank": 140332,
-      "country_rank": 42,
       "avatar_url": "https://a.ppy.sh/13005244?1742379598.jpeg",
-      "profile_url": "https://osu.ppy.sh/users/13005244"
+      "profile_url": "https://osu.ppy.sh/users/13005244",
+      "country_rank": 42
     },
     {
       "username": "ShadowBladee2k",
       "user_id": 12756911,
-      "pp": 4090.32,
+      "ranked_score": 5981345727,
       "play_count": 65756,
-      "global_rank": 154687,
-      "country_rank": 43,
       "avatar_url": "https://a.ppy.sh/12756911?1631298759.jpeg",
-      "profile_url": "https://osu.ppy.sh/users/12756911"
+      "profile_url": "https://osu.ppy.sh/users/12756911",
+      "country_rank": 43
     },
     {
       "username": "Quake203",
       "user_id": 22846495,
-      "pp": 3999.72,
+      "ranked_score": 11098273142,
       "play_count": 15700,
-      "global_rank": 161824,
-      "country_rank": 44,
       "avatar_url": "https://a.ppy.sh/22846495?1739300071.jpeg",
-      "profile_url": "https://osu.ppy.sh/users/22846495"
+      "profile_url": "https://osu.ppy.sh/users/22846495",
+      "country_rank": 44
     },
     {
       "username": "The Nerd Sacc",
       "user_id": 20588182,
-      "pp": 3922.78,
+      "ranked_score": 1877664159,
       "play_count": 46615,
-      "global_rank": 168024,
-      "country_rank": 45,
       "avatar_url": "https://a.ppy.sh/20588182?1764901620.jpeg",
-      "profile_url": "https://osu.ppy.sh/users/20588182"
+      "profile_url": "https://osu.ppy.sh/users/20588182",
+      "country_rank": 45
     },
     {
       "username": "MoNsTAR22",
       "user_id": 10876278,
-      "pp": 3840.78,
+      "ranked_score": 1867703388,
       "play_count": 13122,
-      "global_rank": 174981,
-      "country_rank": 46,
       "avatar_url": "https://a.ppy.sh/10876278?1750718602.jpeg",
-      "profile_url": "https://osu.ppy.sh/users/10876278"
+      "profile_url": "https://osu.ppy.sh/users/10876278",
+      "country_rank": 46
     },
     {
       "username": "po11op",
       "user_id": 36738602,
-      "pp": 3837.45,
+      "ranked_score": 1521550618,
       "play_count": 13042,
-      "global_rank": 175251,
-      "country_rank": 47,
       "avatar_url": "https://a.ppy.sh/36738602?1740343348.jpeg",
-      "profile_url": "https://osu.ppy.sh/users/36738602"
+      "profile_url": "https://osu.ppy.sh/users/36738602",
+      "country_rank": 47
     },
     {
       "username": "Ramris",
       "user_id": 14515694,
-      "pp": 3809.44,
+      "ranked_score": 2470190565,
       "play_count": 22749,
-      "global_rank": 177761,
-      "country_rank": 48,
       "avatar_url": "https://a.ppy.sh/14515694?1572859426.jpeg",
-      "profile_url": "https://osu.ppy.sh/users/14515694"
+      "profile_url": "https://osu.ppy.sh/users/14515694",
+      "country_rank": 48
     },
     {
       "username": "saksokse",
       "user_id": 30691917,
-      "pp": 3747.94,
+      "ranked_score": 1007959856,
       "play_count": 13746,
-      "global_rank": 183239,
-      "country_rank": 49,
       "avatar_url": "https://a.ppy.sh/30691917?1678673120.jpeg",
-      "profile_url": "https://osu.ppy.sh/users/30691917"
+      "profile_url": "https://osu.ppy.sh/users/30691917",
+      "country_rank": 49
     },
     {
       "username": "Andr0_Meda",
       "user_id": 7376292,
-      "pp": 3747.85,
+      "ranked_score": 7109993866,
       "play_count": 55580,
-      "global_rank": 183223,
-      "country_rank": 50,
       "avatar_url": "https://a.ppy.sh/7376292?1596478605.jpeg",
-      "profile_url": "https://osu.ppy.sh/users/7376292"
+      "profile_url": "https://osu.ppy.sh/users/7376292",
+      "country_rank": 50
     }
   ]
 }
