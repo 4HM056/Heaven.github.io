@@ -1,112 +1,138 @@
 <!doctype html>
 <html>
 <head>
-  <meta charset="utf-8" />
-  <title>Osu! Iraq Leaderboard</title>
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <style>
-    body { font-family: Arial, sans-serif; padding: 20px; max-width: 1000px; margin: auto; }
-    table { border-collapse: collapse; width: 100%; margin-bottom: 20px; }
-    th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
-    th { background: #f4f4f4; }
-    .small { font-size: .9em; color: #666; }
-    img.avatar { width: 32px; height: 32px; border-radius: 50%; margin-right: 8px; vertical-align: middle; }
-    .search { margin-bottom: 10px; }
-    .tabs { margin-bottom: 10px; }
-    .tab { display: inline-block; padding: 6px 12px; margin-right: 4px; cursor: pointer; border: 1px solid #ccc; border-radius: 4px; background: #f4f4f4; }
-    .tab.active { background: #ddd; }
-    .highlight { font-weight: bold; }
-  </style>
+<meta charset="utf-8" />
+<title>Osu! Iraq Leaderboard</title>
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<style>
+body { font-family: Arial, sans-serif; padding: 20px; max-width: 1200px; margin: auto; }
+table { border-collapse: collapse; width: 100%; margin-bottom: 20px; }
+th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+th { background: #f4f4f4; cursor: pointer; }
+img.avatar { width: 32px; height: 32px; border-radius: 50%; vertical-align: middle; margin-right: 8px; }
+.small { font-size: .9em; color: #666; }
+.top1 { background-color: gold; }
+.top2 { background-color: silver; }
+.top3 { background-color: #cd7f32; }
+.tab { display: inline-block; padding: 10px 20px; margin-right: 5px; cursor: pointer; background: #eee; border-radius: 5px; }
+.tab.active { background: #ccc; }
+.tab-content { display: none; }
+.tab-content.active { display: block; }
+#search { margin: 10px 0; padding: 5px; width: 300px; }
+.pagination { margin: 10px 0; }
+.page-btn { cursor: pointer; padding: 5px 10px; margin: 0 2px; background: #eee; border-radius: 3px; }
+.page-btn.active { background: #ccc; }
+</style>
 </head>
 <body>
-  <h1>Osu! Iraq Leaderboard</h1>
-  <p class="small">Auto-updated via GitHub Actions. Data for country <strong>IQ</strong>.</p>
-  <p>Last update: <span id="updated">-</span> — Source: <span id="source">leaderboard.json</span></p>
 
-  <div class="tabs">
-    <span class="tab active" data-tab="page1">Top 1-50</span>
-    <span class="tab" data-tab="page2">Top 51-100</span>
-  </div>
+<h1>Osu! Iraq Leaderboard</h1>
+<p class="small">Auto-updated via GitHub Actions (official osu! API v2).</p>
+<p>Last update: <span id="updated">-</span></p>
 
-  <input type="text" id="search" class="search" placeholder="Search username..." />
+<div id="tabs"></div>
+<input type="text" id="search" placeholder="Search username..." />
 
-  <table id="table" aria-live="polite">
-    <thead>
-      <tr>
-        <th>#</th>
-        <th>User</th>
-        <th>Ranked Score</th>
-        <th>Play Count</th>
-      </tr>
-    </thead>
-    <tbody></tbody>
-  </table>
+<div id="contents"></div>
 
-  <script>
-    let leaderboard = [];
+<script>
+const metrics = [
+  { key: 'pp', name: 'Performance Points (PP)' },
+  { key: 'level', name: 'Level' },
+  { key: 'accuracy', name: 'Accuracy' },
+  { key: 'play_count', name: 'Play Count' },
+  { key: 'ranked_score', name: 'Ranked Score' },
+  { key: 'top_plays', name: 'Top Plays' },
+  { key: 'ss_count', name: 'SS Count' },
+];
 
-    function render(page = 1, filter = "") {
-      const tbody = document.querySelector("#table tbody");
-      tbody.innerHTML = "";
+let items = [];
+let currentMetric = 'pp';
+let currentPage = 1;
 
-      const start = (page - 1) * 50;
-      const end = start + 50;
-      const items = leaderboard.slice(start, end).filter(u => u.username.toLowerCase().includes(filter.toLowerCase()));
+function renderTabs() {
+  const tabs = document.getElementById('tabs');
+  tabs.innerHTML = '';
+  metrics.forEach(m => {
+    const t = document.createElement('div');
+    t.className = 'tab' + (m.key === currentMetric ? ' active' : '');
+    t.textContent = m.name;
+    t.onclick = () => { currentMetric = m.key; currentPage = 1; updateLeaderboard(); renderTabs(); };
+    tabs.appendChild(t);
+  });
+}
 
-      items.forEach((u, i) => {
-        const tr = document.createElement("tr");
+function renderPagination(totalPages) {
+  const div = document.createElement('div');
+  div.className = 'pagination';
+  for (let i=1;i<=totalPages;i++){
+    const btn = document.createElement('span');
+    btn.className = 'page-btn' + (i===currentPage?' active':'');
+    btn.textContent = i;
+    btn.onclick = () => { currentPage = i; updateLeaderboard(); };
+    div.appendChild(btn);
+  }
+  return div;
+}
 
-        // highlight top 3 on first page only
-        let highlightClass = "";
-        if(page === 1 && i < 3) highlightClass = "highlight";
+function updateLeaderboard() {
+  const tbodyId = 'table-body';
+  let container = document.getElementById('contents');
+  container.innerHTML = '';
 
-        tr.innerHTML = `
-          <td class="${highlightClass}">${start + i + 1}</td>
-          <td class="${highlightClass}">
-            <a href="${u.profile_url}" target="_blank">
-              <img src="${u.avatar_url}" class="avatar"/>${u.username}
-            </a>
-          </td>
-          <td class="${highlightClass}">${u.ranked_score.toLocaleString()}</td>
-          <td>${u.play_count.toLocaleString()}</td>
-        `;
-        tbody.appendChild(tr);
-      });
-    }
+  const table = document.createElement('table');
+  const thead = document.createElement('thead');
+  thead.innerHTML = `<tr><th>#</th><th>User</th><th>${metrics.find(m=>m.key===currentMetric).name}</th></tr>`;
+  table.appendChild(thead);
+  const tbody = document.createElement('tbody');
+  tbody.id = tbodyId;
+  table.appendChild(tbody);
+  container.appendChild(table);
 
-    async function load() {
-      try {
-        const res = await fetch("leaderboard.json", {cache: "no-store"});
-        const json = await res.json();
-        document.getElementById("source").textContent = json.source || "leaderboard.json";
-        document.getElementById("updated").textContent = json.updated_at || "-";
-        leaderboard = json.items || [];
-        render(1);
-      } catch (err) {
-        document.querySelector("#table tbody").innerHTML = `<tr><td colspan="4">Error: ${err.message}</td></tr>`;
-      }
-    }
+  // Filter by search
+  const searchVal = document.getElementById('search').value.toLowerCase();
+  let filtered = items.filter(u=>u.username.toLowerCase().includes(searchVal));
 
-    load();
-    setInterval(load, 3600000); // refresh every 1h
+  // Sort by metric descending
+  filtered.sort((a,b) => (b[currentMetric]||0)-(a[currentMetric]||0));
 
-    // tab switching
-    document.querySelectorAll(".tab").forEach(tab => {
-      tab.addEventListener("click", () => {
-        document.querySelectorAll(".tab").forEach(t => t.classList.remove("active"));
-        tab.classList.add("active");
-        const page = tab.dataset.tab === "page1" ? 1 : 2;
-        const filter = document.getElementById("search").value;
-        render(page, filter);
-      });
-    });
+  // Pagination: 50 per page
+  const totalPages = Math.ceil(filtered.length / 50);
+  const pageItems = filtered.slice((currentPage-1)*50, currentPage*50);
 
-    // search input
-    document.getElementById("search").addEventListener("input", () => {
-      const activeTab = document.querySelector(".tab.active").dataset.tab;
-      const page = activeTab === "page1" ? 1 : 2;
-      render(page, document.getElementById("search").value);
-    });
-  </script>
+  pageItems.forEach((u,i)=>{
+    const tr = document.createElement('tr');
+    if(i===0) tr.classList.add('top1');
+    if(i===1) tr.classList.add('top2');
+    if(i===2) tr.classList.add('top3');
+    tr.innerHTML = `
+      <td>${(currentPage-1)*50 + i +1}</td>
+      <td><img src="${u.avatar_url}" class="avatar"><a href="${u.profile_url}" target="_blank">${u.username}</a></td>
+      <td>${u[currentMetric]}</td>
+    `;
+    tbody.appendChild(tr);
+  });
+
+  container.appendChild(renderPagination(totalPages));
+}
+
+async function load() {
+  try {
+    const res = await fetch('leaderboard.json', {cache: "no-store"});
+    const json = await res.json();
+    items = json.items || [];
+    document.getElementById('updated').textContent = new Date(json.updated_at).toLocaleString();
+    renderTabs();
+    updateLeaderboard();
+  } catch (err) {
+    document.getElementById('contents').innerHTML = `<p>Error: ${err.message}</p>`;
+  }
+}
+
+document.getElementById('search').addEventListener('input', () => { currentPage=1; updateLeaderboard(); });
+
+load();
+setInterval(load, 60000);
+</script>
 </body>
 </html>
