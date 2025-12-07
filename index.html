@@ -34,10 +34,15 @@
 
         const data = json.data || json;
         let list = [];
-        if (Array.isArray(data)) list = data;
-        else if (data.ranking && Array.isArray(data.ranking.items)) list = data.ranking.items;
-        else if (data.ranking && Array.isArray(data.ranking)) list = data.ranking;
-        else if (data.items && Array.isArray(data.items)) list = data.items;
+        
+        // Handle osu API v2 response shape
+        if (data.ranking && Array.isArray(data.ranking)) {
+          list = data.ranking;
+        } else if (Array.isArray(data)) {
+          list = data;
+        } else if (data.items && Array.isArray(data.items)) {
+          list = data.items;
+        }
 
         if (list.length === 0) {
           tbody.innerHTML = '<tr><td colspan="4">No data yet. Check the Actions run or secrets.</td></tr>';
@@ -45,9 +50,9 @@
         }
 
         list.slice(0, 200).forEach((it, i) => {
-          const username = it.user?.username || it.username || it.user_name || (it.user && it.user.display_name) || 'Unknown';
-          const rank = it.pp_rank || it.rank || it.user?.pp_rank || (i+1);
-          const pp = it.pp || it.performance || it.user?.statistics?.pp || '-';
+          const username = it.user?.username || it.user?.display_name || 'Unknown';
+          const rank = it.rank || it.global_rank || it.pp_rank || (i+1);
+          const pp = it.pp || it.user?.statistics?.pp || '-';
           const tr = document.createElement('tr');
           tr.innerHTML = `<td>${i+1}</td><td>${username}</td><td>${rank}</td><td>${pp}</td>`;
           tbody.appendChild(tr);
