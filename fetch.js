@@ -4,7 +4,8 @@ const fs = require("fs");
 const CLIENT_ID = process.env.OSU_CLIENT_ID;
 const CLIENT_SECRET = process.env.OSU_CLIENT_SECRET;
 const COUNTRY = process.env.OSU_COUNTRY || "IQ";
-const LIMIT = 50; // top 50 users
+const LIMIT = 50; // 50 per page
+const PAGES = 2;  // top 100
 
 // Get OAuth token
 async function getToken() {
@@ -17,12 +18,12 @@ async function getToken() {
   return res.data.access_token;
 }
 
-// Fetch country leaderboard (PP ranking)
-async function fetchCountryLeaderboard(token) {
+// Fetch country leaderboard page
+async function fetchCountryLeaderboardPage(token, page) {
   const url = "https://osu.ppy.sh/api/v2/rankings/osu/performance";
   const res = await axios.get(url, {
     headers: { Authorization: `Bearer ${token}` },
-    params: { country: COUNTRY, limit: LIMIT },
+    params: { country: COUNTRY, limit: LIMIT, page },
   });
   return res.data.ranking || [];
 }
@@ -45,33 +46,35 @@ async function fetchUserStats(token, user_id) {
     console.log("Getting OAuth token...");
     const token = await getToken();
 
-    console.log(`Fetching top ${LIMIT} leaderboard for country: ${COUNTRY}`);
-    const ranking = await fetchCountryLeaderboard(token);
-
-    // Fetch full stats for each user
     const items = [];
-    for (let i = 0; i < ranking.length; i++) {
-      const u = ranking[i];
-      if (!u.user?.id) continue;
 
-      const stats = await fetchUserStats(token, u.user.id);
-      if (!stats) continue;
+    for (let page = 1; page <= PAGES; page++) {
+      console.log(`Fetching leaderboard page ${page}`);
+      const ranking = await fetchCountryLeaderboardPage(token, page);
 
-      items.push({
-        username: stats.username || "Unknown",
-        user_id: stats.id || 0,
-        pp: u.pp || 0,
-        accuracy: stats.statistics?.hit_accuracy?.toFixed(2) || "0.00",
-        play_count: stats.statistics?.play_count || 0,
-        ss_count: stats.statistics?.rank_counts?.ss || 0,
-        top_plays: (stats.statistics?.count_rank_ss || 0) + (stats.statistics?.count_rank_s || 0),
-        global_rank: stats.statistics?.global_rank || 0,
-        country_rank: stats.statistics?.country_rank || 0,
-        avatar_url: stats.avatar_url || "",
-        profile_url: `https://osu.ppy.sh/users/${stats.id}`,
-      });
+      for (let i = 0; i < ranking.length; i++) {
+        const u = ranking[i];
+        if (!u.user?.id) continue;
 
-      console.log(`Fetched stats for ${stats.username} (${i + 1}/${ranking.length})`);
+        const stats = await fetchUserStats(token, u.user.id);
+        if (!stats) continue;
+
+        items.push({
+          username: stats.username || "Unknown",
+          user_id: stats.id || 0,
+          pp: u.pp || 0,
+          accuracy: stats.statistics?.hit_accuracy?.toFixed(2) || "0.00",
+          play_count: stats.statistics?.play_count || 0,
+          ss_count: stats.statistics?.rank_counts?.ss || 0,
+          ranked_score: u.ranked_score || 0,
+          global_rank: stats.statistics?.global_rank || 0,
+          country_rank: stats.statistics?.country_rank || 0,
+          avatar_url: stats.avatar_url || "",
+          profile_url: `https://osu.ppy.sh/users/${stats.id}`,
+        });
+
+        console.log(`Fetched stats for ${stats.username} (page ${page}, ${i + 1}/${ranking.length})`);
+      }
     }
 
     const result = {
