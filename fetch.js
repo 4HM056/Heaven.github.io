@@ -1,7 +1,3 @@
-// fetch.js
-// Node script used in GitHub Actions to fetch an OAuth token and then the country leaderboard.
-// Writes leaderboard.json to repo root.
-
 const fs = require('fs');
 const axios = require('axios');
 
