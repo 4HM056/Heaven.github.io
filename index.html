@@ -1,64 +1,113 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8" />
   <title>Osu! Iraq Leaderboard</title>
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <style>
-    body { font-family: Arial, sans-serif; padding: 20px; max-width: 1000px; margin: auto; }
-    table { border-collapse: collapse; width: 100%; }
+    body { font-family: Arial, sans-serif; padding: 20px; max-width: 1200px; margin: auto; }
+    table { border-collapse: collapse; width: 100%; margin-top: 10px; }
     th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
-    th { background: #f4f4f4; }
-    img.avatar { width: 32px; height: 32px; border-radius: 50%; vertical-align: middle; margin-right: 8px; }
-    .small { font-size: .9em; color: #666; }
+    th { background: #f4f4f4; cursor: pointer; }
+    .avatar { width: 32px; height: 32px; border-radius: 50%; vertical-align: middle; margin-right: 8px; }
+    .top1 { background-color: gold; }
+    .top2 { background-color: silver; }
+    .top3 { background-color: #cd7f32; }
+    .tabs { display: flex; margin-top: 20px; }
+    .tab { padding: 10px 20px; margin-right: 5px; cursor: pointer; border: 1px solid #ccc; border-bottom: none; }
+    .tab.active { background: #f4f4f4; font-weight: bold; }
+    .tab-content { border: 1px solid #ccc; padding: 10px; display: none; }
+    .tab-content.active { display: block; }
+    input.search { margin-top: 10px; padding: 5px; width: 200px; }
   </style>
 </head>
 <body>
   <h1>Osu! Iraq Leaderboard</h1>
-  <p class="small">Auto-updated every hour via GitHub Actions. Using official osu! API v2.</p>
+  <p class="small">Auto-updated via GitHub Actions. Using official osu! API v2.</p>
   <p>Last update: <span id="updated">-</span></p>
 
-  <table id="table" aria-live="polite">
-    <thead>
-      <tr><th>#</th><th>User</th><th>Global Rank</th><th>PP</th></tr>
-    </thead>
-    <tbody></tbody>
-  </table>
+  <input type="text" id="searchBox" class="search" placeholder="Search player...">
 
-  <script>
-    async function load() {
-      try {
-        const res = await fetch('leaderboard.json', {cache: "no-store"});
-        const json = await res.json();
+  <div class="tabs">
+    <div class="tab active" data-tab="pp">PP</div>
+    <div class="tab" data-tab="level">Level</div>
+    <div class="tab" data-tab="accuracy">Accuracy</div>
+    <div class="tab" data-tab="play_count">Play Count</div>
+    <div class="tab" data-tab="top_plays">Top Plays</div>
+    <div class="tab" data-tab="ss_count">SS Count</div>
+  </div>
 
-        document.getElementById('updated').textContent =
-          json.updated_at ? new Date(json.updated_at).toLocaleString() : '-';
+  <div id="pp" class="tab-content active"><table><thead><tr><th>#</th><th>User</th><th>PP</th></tr></thead><tbody></tbody></table></div>
+  <div id="level" class="tab-content"><table><thead><tr><th>#</th><th>User</th><th>Level</th></tr></thead><tbody></tbody></table></div>
+  <div id="accuracy" class="tab-content"><table><thead><tr><th>#</th><th>User</th><th>Accuracy</th></tr></thead><tbody></tbody></table></div>
+  <div id="play_count" class="tab-content"><table><thead><tr><th>#</th><th>User</th><th>Play Count</th></tr></thead><tbody></tbody></table></div>
+  <div id="top_plays" class="tab-content"><table><thead><tr><th>#</th><th>User</th><th>Top Plays</th></tr></thead><tbody></tbody></table></div>
+  <div id="ss_count" class="tab-content"><table><thead><tr><th>#</th><th>User</th><th>SS Count</th></tr></thead><tbody></tbody></table></div>
 
-        const tbody = document.querySelector('#table tbody');
-        tbody.innerHTML = '';
+<script>
+async function load() {
+  try {
+    const res = await fetch('leaderboard.json', {cache: "no-store"});
+    const json = await res.json();
 
-        json.items.forEach((u, i) => {
-          const tr = document.createElement('tr');
-          tr.innerHTML = `
-            <td>${i + 1}</td>
-            <td>
-              <img src="${u.avatar_url}" class="avatar">
-              <a href="${u.profile_url}" target="_blank">${u.username}</a>
-            </td>
-            <td>#${u.rank ?? '-'}</td>
-            <td>${u.pp ?? '-'}</td>
-          `;
-          tbody.appendChild(tr);
-        });
+    document.getElementById('updated').textContent = new Date(json.updated_at).toLocaleString();
+    const items = json.items || [];
 
-      } catch (err) {
-        document.querySelector('#table tbody').innerHTML =
-          `<tr><td colspan="4">Error: ${err.message}</td></tr>`;
-      }
+    function render(tableId, key, isNumber=true) {
+      const tbody = document.querySelector(`#${tableId} tbody`);
+      tbody.innerHTML = '';
+      let filtered = items;
+
+      const search = document.getElementById('searchBox').value.toLowerCase();
+      if(search) filtered = filtered.filter(p => p.username.toLowerCase().includes(search));
+
+      filtered.sort((a,b)=> isNumber ? (b[key]||0)-(a[key]||0) : 0)
+              .slice(0,100)
+              .forEach((p,i)=>{
+        const tr = document.createElement('tr');
+        if(i===0) tr.classList.add('top1');
+        else if(i===1) tr.classList.add('top2');
+        else if(i===2) tr.classList.add('top3');
+        tr.innerHTML = `
+          <td>${i+1}</td>
+          <td><img src="${p.avatar_url}" class="avatar">
+              <a href="${p.profile_url}" target="_blank">${p.username}</a></td>
+          <td>${p[key]}</td>
+        `;
+        tbody.appendChild(tr);
+      });
     }
 
-    load();
-    setInterval(load, 60000);
-  </script>
+    ['pp','level','accuracy','play_count','top_plays','ss_count'].forEach(k=>{
+      render(k,k);
+    });
+
+    document.getElementById('searchBox').addEventListener('input', ()=> {
+      ['pp','level','accuracy','play_count','top_plays','ss_count'].forEach(k=>{
+        render(k,k);
+      });
+    });
+
+  } catch(err){
+    console.error(err);
+  }
+}
+
+load();
+setInterval(load, 60000);
+
+// Tabs functionality
+document.querySelectorAll('.tab').forEach(tab=>{
+  tab.addEventListener('click', ()=>{
+    document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+    tab.classList.add('active');
+    const tabName = tab.dataset.tab;
+    document.querySelectorAll('.tab-content').forEach(tc=>{
+      tc.classList.remove('active');
+    });
+    document.getElementById(tabName).classList.add('active');
+  });
+});
+</script>
 </body>
 </html>
