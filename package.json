@@ -1,0 +1,11 @@
+{
+  "name": "osu-leaderboard-action",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "axios": "^1.4.0"
+  },
+  "scripts": {
+    "fetch": "node fetch.js"
+  }
+}
