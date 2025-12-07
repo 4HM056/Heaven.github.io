@@ -1,120 +1,64 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html>
 <head>
-<meta charset="UTF-8">
-<title>Osu! Iraq Leaderboards</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-body { font-family: Arial, sans-serif; padding: 20px; max-width: 1200px; margin: auto; }
-h1 { margin-bottom: 0; }
-.tabs { margin-top: 20px; display: flex; gap: 10px; flex-wrap: wrap; }
-.tab { padding: 8px 16px; background: #f4f4f4; cursor: pointer; border-radius: 5px; }
-.tab.active { background: #ddd; font-weight: bold; }
-table { border-collapse: collapse; width: 100%; margin-top: 10px; }
-th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
-th { background: #f4f4f4; }
-img.avatar { width: 32px; height: 32px; border-radius: 50%; vertical-align: middle; margin-right: 8px; }
-.pagination { margin-top: 10px; }
-.page-btn { margin: 0 2px; cursor: pointer; padding: 4px 8px; background: #eee; border-radius: 3px; }
-.page-btn.active { background: #ddd; font-weight: bold; }
-</style>
+  <meta charset="utf-8" />
+  <title>Osu! Iraq Leaderboard</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; max-width: 1000px; margin: auto; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+    th { background: #f4f4f4; }
+    img.avatar { width: 32px; height: 32px; border-radius: 50%; vertical-align: middle; margin-right: 8px; }
+    .small { font-size: .9em; color: #666; }
+  </style>
 </head>
 <body>
-<h1>Osu! Iraq Leaderboards</h1>
-<p class="small">Auto-updated via GitHub Actions. Top 100 in each category.</p>
-<p>Last update: <span id="updated">-</span></p>
+  <h1>Osu! Iraq Leaderboard</h1>
+  <p class="small">Auto-updated every hour via GitHub Actions. Using official osu! API v2.</p>
+  <p>Last update: <span id="updated">-</span></p>
 
-<div class="tabs">
-  <div class="tab active" data-metric="pp">Performance Points (PP)</div>
-  <div class="tab" data-metric="play_count">Play Count</div>
-  <div class="tab" data-metric="accuracy">Accuracy</div>
-  <div class="tab" data-metric="ranked_score">Ranked Score</div>
-</div>
-
-<div id="leaderboard-container">
-  <table id="leaderboard-table">
+  <table id="table" aria-live="polite">
     <thead>
-      <tr>
-        <th>#</th>
-        <th>User</th>
-        <th>Value</th>
-      </tr>
+      <tr><th>#</th><th>User</th><th>Global Rank</th><th>PP</th></tr>
     </thead>
     <tbody></tbody>
   </table>
-  <div class="pagination" id="pagination"></div>
-</div>
 
-<script>
-let data = [];
-let currentMetric = 'pp';
-let currentPage = 1;
-const pageSize = 50;
+  <script>
+    async function load() {
+      try {
+        const res = await fetch('leaderboard.json', {cache: "no-store"});
+        const json = await res.json();
 
-function renderTable() {
-  const tbody = document.querySelector('#leaderboard-table tbody');
-  tbody.innerHTML = '';
+        document.getElementById('updated').textContent =
+          json.updated_at ? new Date(json.updated_at).toLocaleString() : '-';
 
-  const sorted = [...data].sort((a, b) => {
-    let va = a[currentMetric] ?? 0;
-    let vb = b[currentMetric] ?? 0;
-    return vb - va; // descending
-  }).slice((currentPage-1)*pageSize, currentPage*pageSize);
+        const tbody = document.querySelector('#table tbody');
+        tbody.innerHTML = '';
 
-  sorted.forEach((u, i) => {
-    const rank = (currentPage-1)*pageSize + i + 1;
-    const value = currentMetric === 'accuracy' ? (u.accuracy?.toFixed(2)+'%') : u[currentMetric];
-    const tr = document.createElement('tr');
-    tr.innerHTML = `
-      <td>${rank}</td>
-      <td><img src="${u.avatar_url}" class="avatar">
-          <a href="${u.profile_url}" target="_blank">${u.username}</a></td>
-      <td>${value}</td>
-    `;
-    tbody.appendChild(tr);
-  });
+        json.items.forEach((u, i) => {
+          const tr = document.createElement('tr');
+          tr.innerHTML = `
+            <td>${i + 1}</td>
+            <td>
+              <img src="${u.avatar_url}" class="avatar">
+              <a href="${u.profile_url}" target="_blank">${u.username}</a>
+            </td>
+            <td>#${u.rank ?? '-'}</td>
+            <td>${u.pp ?? '-'}</td>
+          `;
+          tbody.appendChild(tr);
+        });
 
-  renderPagination();
-}
+      } catch (err) {
+        document.querySelector('#table tbody').innerHTML =
+          `<tr><td colspan="4">Error: ${err.message}</td></tr>`;
+      }
+    }
 
-function renderPagination() {
-  const container = document.getElementById('pagination');
-  container.innerHTML = '';
-  const totalPages = Math.ceil(100 / pageSize);
-  for(let p=1;p<=totalPages;p++){
-    const btn = document.createElement('span');
-    btn.textContent = p;
-    btn.className = 'page-btn' + (p===currentPage?' active':'');
-    btn.onclick = () => { currentPage = p; renderTable(); };
-    container.appendChild(btn);
-  }
-}
-
-document.querySelectorAll('.tab').forEach(tab => {
-  tab.onclick = () => {
-    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-    tab.classList.add('active');
-    currentMetric = tab.dataset.metric;
-    currentPage = 1;
-    renderTable();
-  };
-});
-
-async function load() {
-  try {
-    const res = await fetch('leaderboard.json', {cache: "no-store"});
-    const json = await res.json();
-    document.getElementById('updated').textContent = json.updated_at ? new Date(json.updated_at).toLocaleString() : '-';
-    data = json.items.slice(0, 100); // top 100
-    renderTable();
-  } catch (err) {
-    document.querySelector('#leaderboard-table tbody').innerHTML =
-      `<tr><td colspan="3">Error: ${err.message}</td></tr>`;
-  }
-}
-
-load();
-setInterval(load, 60000);
-</script>
+    load();
+    setInterval(load, 60000);
+  </script>
 </body>
 </html>
