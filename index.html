@@ -27,43 +27,33 @@
         const res = await fetch('leaderboard.json', {cache: "no-store"});
         if (!res.ok) throw new Error('Could not fetch leaderboard.json');
         const json = await res.json();
+        document.getElementById('source').textContent = json.source || 'leaderboard.json';
         const updated = json.updated_at ? new Date(json.updated_at).toLocaleString() : '-';
         document.getElementById('updated').textContent = updated;
         const tbody = document.querySelector('#table tbody');
         tbody.innerHTML = '';
 
-        const data = json.data || json;
-        let list = [];
-        
-        // Handle osu API v2 response shape
-        if (data.ranking && Array.isArray(data.ranking)) {
-          list = data.ranking;
-        } else if (Array.isArray(data)) {
-          list = data;
-        } else if (data.items && Array.isArray(data.items)) {
-          list = data.items;
-        }
-
-        if (list.length === 0) {
-          tbody.innerHTML = '<tr><td colspan="4">No data yet. Check the Actions run or secrets.</td></tr>';
+        const items = (json.items && Array.isArray(json.items)) ? json.items : (json.data || []);
+        if (!Array.isArray(items) || items.length === 0) {
+          tbody.innerHTML = '<tr><td colspan="4">No data yet. Check Actions logs.</td></tr>';
           return;
         }
 
-        list.slice(0, 200).forEach((it, i) => {
-          const username = it.user?.username || it.user?.display_name || 'Unknown';
-          const rank = it.rank || it.global_rank || it.pp_rank || (i+1);
-          const pp = it.pp || it.user?.statistics?.pp || '-';
+        items.slice(0, 200).forEach((it, i) => {
+          const username = it.username || 'Unknown';
+          const rank = it.rank || (i+1);
+          const pp = it.pp || '-';
           const tr = document.createElement('tr');
-          tr.innerHTML = `<td>${i+1}</td><td>${username}</td><td>${rank}</td><td>${pp}</td>`;
+          tr.innerHTML = `<td>${rank}</td><td>${username}</td><td>${rank}</td><td>${pp}</td>`;
           tbody.appendChild(tr);
         });
       } catch (err) {
-        document.querySelector('#table tbody').innerHTML = `<tr><td colspan="4">Error loading data: ${err.message}</td></tr>`;
+        document.querySelector('#table tbody').innerHTML = `<tr><td colspan="4">Error: ${err.message}</td></tr>`;
       }
     }
 
     load();
-    setInterval(load, 60_000);
+    setInterval(load, 60000);
   </script>
 </body>
 </html>
