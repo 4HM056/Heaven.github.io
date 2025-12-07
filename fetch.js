@@ -17,7 +17,7 @@ async function getToken() {
   return res.data.access_token;
 }
 
-// Fetch country leaderboard (PP ranking)
+// Fetch country leaderboard (performance endpoint)
 async function fetchCountryLeaderboard(token) {
   const url = "https://osu.ppy.sh/api/v2/rankings/osu/performance";
   const res = await axios.get(url, {
@@ -27,7 +27,7 @@ async function fetchCountryLeaderboard(token) {
   return res.data.ranking || [];
 }
 
-// Fetch full user statistics for one user
+// Fetch full user stats
 async function fetchUserStats(token, user_id) {
   try {
     const res = await axios.get(`https://osu.ppy.sh/api/v2/users/${user_id}/osu`, {
@@ -59,12 +59,11 @@ async function fetchUserStats(token, user_id) {
       items.push({
         username: stats.username || "Unknown",
         user_id: stats.id || 0,
-        pp: u.pp || 0, // ranked score / performance points
+        ranked_score: u.ranked_score || 0,
         play_count: stats.statistics?.play_count || 0,
-        global_rank: stats.statistics?.global_rank || 0,
-        country_rank: stats.statistics?.country_rank || 0,
         avatar_url: stats.avatar_url || "",
         profile_url: `https://osu.ppy.sh/users/${stats.id}`,
+        country_rank: stats.statistics?.country_rank || i + 1,
       });
 
       console.log(`Fetched stats for ${stats.username} (${i + 1}/${ranking.length})`);
