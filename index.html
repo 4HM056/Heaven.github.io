@@ -30,7 +30,6 @@
 
   <div class="tabs">
     <div class="tab active" data-tab="pp">PP</div>
-    <div class="tab" data-tab="level">Level</div>
     <div class="tab" data-tab="accuracy">Accuracy</div>
     <div class="tab" data-tab="play_count">Play Count</div>
     <div class="tab" data-tab="top_plays">Top Plays</div>
@@ -38,7 +37,6 @@
   </div>
 
   <div id="pp" class="tab-content active"><table><thead><tr><th>#</th><th>User</th><th>PP</th></tr></thead><tbody></tbody></table></div>
-  <div id="level" class="tab-content"><table><thead><tr><th>#</th><th>User</th><th>Level</th></tr></thead><tbody></tbody></table></div>
   <div id="accuracy" class="tab-content"><table><thead><tr><th>#</th><th>User</th><th>Accuracy</th></tr></thead><tbody></tbody></table></div>
   <div id="play_count" class="tab-content"><table><thead><tr><th>#</th><th>User</th><th>Play Count</th></tr></thead><tbody></tbody></table></div>
   <div id="top_plays" class="tab-content"><table><thead><tr><th>#</th><th>User</th><th>Top Plays</th></tr></thead><tbody></tbody></table></div>
@@ -53,7 +51,7 @@ async function load() {
     document.getElementById('updated').textContent = new Date(json.updated_at).toLocaleString();
     const items = json.items || [];
 
-    function render(tableId, key, isNumber=true) {
+    function render(tableId, key) {
       const tbody = document.querySelector(`#${tableId} tbody`);
       tbody.innerHTML = '';
       let filtered = items;
@@ -61,7 +59,7 @@ async function load() {
       const search = document.getElementById('searchBox').value.toLowerCase();
       if(search) filtered = filtered.filter(p => p.username.toLowerCase().includes(search));
 
-      filtered.sort((a,b)=> isNumber ? (b[key]||0)-(a[key]||0) : 0)
+      filtered.sort((a,b)=> (b[key]||0)-(a[key]||0))
               .slice(0,100)
               .forEach((p,i)=>{
         const tr = document.createElement('tr');
@@ -78,14 +76,10 @@ async function load() {
       });
     }
 
-    ['pp','level','accuracy','play_count','top_plays','ss_count'].forEach(k=>{
-      render(k,k);
-    });
+    ['pp','accuracy','play_count','top_plays','ss_count'].forEach(k=> render(k,k));
 
-    document.getElementById('searchBox').addEventListener('input', ()=> {
-      ['pp','level','accuracy','play_count','top_plays','ss_count'].forEach(k=>{
-        render(k,k);
-      });
+    document.getElementById('searchBox').addEventListener('input', ()=>{
+      ['pp','accuracy','play_count','top_plays','ss_count'].forEach(k=> render(k,k));
     });
 
   } catch(err){
@@ -96,7 +90,6 @@ async function load() {
 load();
 setInterval(load, 60000);
 
-// Tabs functionality
 document.querySelectorAll('.tab').forEach(tab=>{
   tab.addEventListener('click', ()=>{
     document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
