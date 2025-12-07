@@ -1,12 +1,16 @@
+// fetch.js — official osu! API, extended stats
 const axios = require("axios");
 const fs = require("fs");
 
 const CLIENT_ID = process.env.OSU_CLIENT_ID;
 const CLIENT_SECRET = process.env.OSU_CLIENT_SECRET;
 const COUNTRY = process.env.OSU_COUNTRY || "IQ";
-const LIMIT = 100; // top 100 users
 
-// Get OAuth token
+if (!CLIENT_ID || !CLIENT_SECRET) {
+  console.error("OSU_CLIENT_ID and OSU_CLIENT_SECRET must be set as environment variables.");
+  process.exit(1);
+}
+
 async function getToken() {
   const res = await axios.post("https://osu.ppy.sh/oauth/token", {
     client_id: CLIENT_ID,
@@ -17,27 +21,24 @@ async function getToken() {
   return res.data.access_token;
 }
 
-// Fetch country leaderboard (performance endpoint)
-async function fetchCountryLeaderboard(token) {
-  const url = "https://osu.ppy.sh/api/v2/rankings/osu/performance";
-  const res = await axios.get(url, {
-    headers: { Authorization: `Bearer ${token}` },
-    params: { country: COUNTRY, limit: LIMIT },
-  });
-  return res.data.ranking || [];
-}
+async function fetchLeaderboard(token) {
+  let items = [];
+  let url = "https://osu.ppy.sh/api/v2/rankings/osu/performance";
+  let cursor = null;
 
-// Fetch full user stats
-async function fetchUserStats(token, user_id) {
-  try {
-    const res = await axios.get(`https://osu.ppy.sh/api/v2/users/${user_id}/osu`, {
+  while (true) {
+    const res = await axios.get(url, {
       headers: { Authorization: `Bearer ${token}` },
+      params: { country: COUNTRY, cursor_string: cursor },
     });
-    return res.data;
-  } catch (err) {
-    console.warn(`Failed to fetch stats for user ${user_id}:`, err.response?.status || err.message);
-    return null;
+
+    items.push(...res.data.ranking);
+
+    if (!res.data.cursor || !res.data.cursor_string) break;
+    cursor = res.data.cursor_string;
   }
+
+  return items;
 }
 
 (async () => {
@@ -45,31 +46,26 @@ async function fetchUserStats(token, user_id) {
     console.log("Getting OAuth token...");
     const token = await getToken();
 
-    console.log(`Fetching top ${LIMIT} leaderboard for country: ${COUNTRY}`);
-    const ranking = await fetchCountryLeaderboard(token);
+    console.log("Fetching leaderboard...");
+    const rawItems = await fetchLeaderboard(token);
 
-    const items = [];
-    for (let i = 0; i < ranking.length; i++) {
-      const u = ranking[i];
-      if (!u.user?.id) continue;
+    const items = rawItems.map((u) => ({
+      username: u.user.username,
+      user_id: u.user.id,
+      pp: u.pp,
+      level: u.user.statistics.level.current,
+      accuracy: parseFloat(u.user.statistics.hit_accuracy.toFixed(2)),
+      play_count: u.user.statistics.play_count,
+      ranked_score: u.user.statistics.ranked_score,
+      ss_count: u.user.statistics.rank_counts?.ss ?? 0,
+      top_plays: u.user.statistics.count_rank_ss + u.user.statistics.count_rank_s,
+      global_rank: u.global_rank,
+      country_rank: u.country_rank,
+      avatar_url: u.user.avatar_url,
+      profile_url: `https://osu.ppy.sh/users/${u.user.id}`,
+    }));
 
-      const stats = await fetchUserStats(token, u.user.id);
-      if (!stats) continue;
-
-      items.push({
-        username: stats.username || "Unknown",
-        user_id: stats.id || 0,
-        ranked_score: u.ranked_score || 0,
-        play_count: stats.statistics?.play_count || 0,
-        avatar_url: stats.avatar_url || "",
-        profile_url: `https://osu.ppy.sh/users/${stats.id}`,
-        country_rank: stats.statistics?.country_rank || i + 1,
-      });
-
-      console.log(`Fetched stats for ${stats.username} (${i + 1}/${ranking.length})`);
-    }
-
-    const result = {
+    const out = {
       updated_at: new Date().toISOString(),
       country: COUNTRY,
       source: "osu API v2",
@@ -77,10 +73,10 @@ async function fetchUserStats(token, user_id) {
       items,
     };
 
-    fs.writeFileSync("leaderboard.json", JSON.stringify(result, null, 2));
+    fs.writeFileSync("leaderboard.json", JSON.stringify(out, null, 2));
     console.log("leaderboard.json updated successfully!");
   } catch (err) {
-    console.error("Error:", err.response?.data || err.message || err);
+    console.error("Error:", err.response ? err.response.data : err);
     process.exit(1);
   }
 })();
