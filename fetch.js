@@ -1,4 +1,4 @@
-// fetch.js — Official osu! API Version
+// fetch.js — Official osu! API Version (full stats)
 const axios = require("axios");
 const fs = require("fs");
 
@@ -13,7 +13,6 @@ async function getToken() {
     grant_type: "client_credentials",
     scope: "public",
   });
-
   return res.data.access_token;
 }
 
@@ -25,22 +24,13 @@ async function fetchCountryLeaderboard(token) {
     const url = "https://osu.ppy.sh/api/v2/rankings/osu/performance";
 
     const res = await axios.get(url, {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-      params: {
-        country: COUNTRY,
-        cursor_string: cursor,
-      },
+      headers: { Authorization: `Bearer ${token}` },
+      params: { country: COUNTRY, cursor_string: cursor },
     });
 
     all.push(...res.data.ranking);
 
-    // pagination: break if no more pages
-    if (!res.data.cursor || !res.data.cursor.pagination || !res.data.cursor.pagination.cursor_string) {
-      break;
-    }
-
+    if (!res.data.cursor || !res.data.cursor.pagination || !res.data.cursor.pagination.cursor_string) break;
     cursor = res.data.cursor.pagination.cursor_string;
   }
 
@@ -64,7 +54,12 @@ async function fetchCountryLeaderboard(token) {
         username: u.user.username,
         user_id: u.user.id,
         pp: u.pp,
-        rank: u.global_rank,
+        level: u.user.statistics.level.current,
+        accuracy: u.user.statistics.hit_accuracy.toFixed(2),
+        play_count: u.user.statistics.play_count,
+        ss_count: u.user.statistics.rank_counts?.ss ?? 0,
+        top_plays: (u.user.statistics.count_rank_ss || 0) + (u.user.statistics.count_rank_s || 0),
+        global_rank: u.global_rank,
         country_rank: u.country_rank,
         avatar_url: u.user.avatar_url,
         profile_url: `https://osu.ppy.sh/users/${u.user.id}`,
@@ -73,7 +68,6 @@ async function fetchCountryLeaderboard(token) {
 
     fs.writeFileSync("leaderboard.json", JSON.stringify(result, null, 2));
     console.log("leaderboard.json updated successfully!");
-
   } catch (err) {
     console.error("Error:", err.response ? err.response.data : err);
     process.exit(1);
