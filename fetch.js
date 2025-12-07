@@ -1,4 +1,3 @@
-// fetch.js — Official osu! API Version (full stats)
 const axios = require("axios");
 const fs = require("fs");
 
@@ -17,24 +16,12 @@ async function getToken() {
 }
 
 async function fetchCountryLeaderboard(token) {
-  let all = [];
-  let cursor = null;
-
-  while (true) {
-    const url = "https://osu.ppy.sh/api/v2/rankings/osu/performance";
-
-    const res = await axios.get(url, {
-      headers: { Authorization: `Bearer ${token}` },
-      params: { country: COUNTRY, cursor_string: cursor },
-    });
-
-    all.push(...res.data.ranking);
-
-    if (!res.data.cursor || !res.data.cursor.pagination || !res.data.cursor.pagination.cursor_string) break;
-    cursor = res.data.cursor.pagination.cursor_string;
-  }
-
-  return all;
+  const url = "https://osu.ppy.sh/api/v2/rankings/osu/performance";
+  const res = await axios.get(url, {
+    headers: { Authorization: `Bearer ${token}` },
+    params: { country: COUNTRY },
+  });
+  return res.data.ranking || [];
 }
 
 (async () => {
@@ -51,18 +38,17 @@ async function fetchCountryLeaderboard(token) {
       source: "osu API v2",
       total: items.length,
       items: items.map((u) => ({
-        username: u.user.username,
-        user_id: u.user.id,
-        pp: u.pp,
-        level: u.user.statistics.level.current,
-        accuracy: u.user.statistics.hit_accuracy.toFixed(2),
-        play_count: u.user.statistics.play_count,
-        ss_count: u.user.statistics.rank_counts?.ss ?? 0,
-        top_plays: (u.user.statistics.count_rank_ss || 0) + (u.user.statistics.count_rank_s || 0),
-        global_rank: u.global_rank,
-        country_rank: u.country_rank,
-        avatar_url: u.user.avatar_url,
-        profile_url: `https://osu.ppy.sh/users/${u.user.id}`,
+        username: u.user?.username || 'Unknown',
+        user_id: u.user?.id || 0,
+        pp: u.pp || 0,
+        accuracy: u.user?.statistics?.hit_accuracy?.toFixed(2) || "0.00",
+        play_count: u.user?.statistics?.play_count || 0,
+        ss_count: u.user?.statistics?.rank_counts?.ss || 0,
+        top_plays: ((u.user?.statistics?.count_rank_ss || 0) + (u.user?.statistics?.count_rank_s || 0)),
+        global_rank: u.global_rank || 0,
+        country_rank: u.country_rank || 0,
+        avatar_url: u.user?.avatar_url || "",
+        profile_url: u.user?.id ? `https://osu.ppy.sh/users/${u.user.id}` : "#",
       })),
     };
 
