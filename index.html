@@ -5,21 +5,15 @@
 <title>Osu! Iraq Leaderboard</title>
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <style>
-body { font-family: Arial, sans-serif; padding: 20px; max-width: 1200px; margin: auto; }
-table { border-collapse: collapse; width: 100%; }
-th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
-th { background: #f4f4f4; cursor: pointer; }
-.small { font-size: .9em; color: #666; }
-.top1 { background: gold; font-weight: bold; }
-.top2 { background: silver; font-weight: bold; }
-.top3 { background: #cd7f32; font-weight: bold; }
-.bar { display: inline-block; height: 10px; background: #4CAF50; }
-.tab { display: none; }
-.tab.active { display: block; }
-button.tablink { margin-right: 5px; padding: 5px 10px; }
-input#search { margin: 10px 0; padding: 5px; width: 200px; }
-.pagination { margin: 10px 0; }
-.pagination button { padding: 5px 10px; margin-right: 5px; }
+  body { font-family: Arial,sans-serif; padding:20px; max-width:1000px; margin:auto; }
+  table { border-collapse: collapse; width:100%; margin-bottom: 20px; }
+  th, td { border:1px solid #ddd; padding:8px; text-align:left; }
+  th { background:#f4f4f4; }
+  .small { font-size:.9em; color:#666; }
+  .gold { background: #ffd700; }
+  .silver { background: #c0c0c0; }
+  .bronze { background: #cd7f32; }
+  .pagination button { margin-right: 5px; padding:5px 10px; cursor:pointer; }
 </style>
 </head>
 <body>
@@ -27,109 +21,65 @@ input#search { margin: 10px 0; padding: 5px; width: 200px; }
 <p class="small">Auto-updated via GitHub Actions. Data for country <strong>IQ</strong>.</p>
 <p>Last update: <span id="updated">-</span> — Source: <span id="source">leaderboard.json</span></p>
 
-<div>
-<button class="tablink" onclick="openTab('pp')">PP</button>
-<button class="tablink" onclick="openTab('accuracy')">Accuracy</button>
-<button class="tablink" onclick="openTab('play_count')">Play Count</button>
-<button class="tablink" onclick="openTab('ss_count')">SS Count</button>
-<button class="tablink" onclick="openTab('ranked_score')">Ranked Score</button>
-<input type="text" id="search" placeholder="Search username..." oninput="filterTable()">
-</div>
+<input type="text" id="search" placeholder="Search username..." style="margin-bottom:10px; padding:5px; width:200px;">
+<div id="table-container"></div>
 
-<div class="tab active" id="pp">
-  <table aria-live="polite"><thead><tr><th>#</th><th>Username</th><th>PP</th></tr></thead><tbody></tbody></table>
-  <div class="pagination" id="pp-pages"></div>
-</div>
-
-<div class="tab" id="accuracy">
-  <table><thead><tr><th>#</th><th>Username</th><th>Accuracy</th></tr></thead><tbody></tbody></table>
-  <div class="pagination" id="accuracy-pages"></div>
-</div>
-
-<div class="tab" id="play_count">
-  <table><thead><tr><th>#</th><th>Username</th><th>Play Count</th></tr></thead><tbody></tbody></table>
-  <div class="pagination" id="play_count-pages"></div>
-</div>
-
-<div class="tab" id="ss_count">
-  <table><thead><tr><th>#</th><th>Username</th><th>SS Count</th></tr></thead><tbody></tbody></table>
-  <div class="pagination" id="ss_count-pages"></div>
-</div>
-
-<div class="tab" id="ranked_score">
-  <table><thead><tr><th>#</th><th>Username</th><th>Ranked Score</th></tr></thead><tbody></tbody></table>
-  <div class="pagination" id="ranked_score-pages"></div>
+<div class="pagination">
+  <button onclick="showPage(1)">Page 1</button>
+  <button onclick="showPage(2)">Page 2</button>
 </div>
 
 <script>
-let leaderboard = [];
-let currentTab = 'pp';
-let currentPage = 1;
-const perPage = 50;
-
-function openTab(tab) {
-  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-  document.getElementById(tab).classList.add('active');
-  currentTab = tab;
-  currentPage = 1;
-  renderTable();
-}
-
-function filterTable() {
-  renderTable();
-}
-
-function paginate(items) {
-  const pages = Math.ceil(items.length / perPage);
-  const start = (currentPage - 1) * perPage;
-  const end = start + perPage;
-  return [items.slice(start, end), pages];
-}
-
-function renderTable() {
-  const filtered = leaderboard.filter(u => u.username.toLowerCase().includes(document.getElementById('search').value.toLowerCase()));
-  let sorted = [...filtered];
-  sorted.sort((a,b) => b[currentTab] - a[currentTab]);
-  const [pageItems, totalPages] = paginate(sorted);
-
-  const tbody = document.querySelector(`#${currentTab} tbody`);
-  tbody.innerHTML = '';
-  pageItems.forEach((u, i) => {
-    let cls = '';
-    if (i === 0) cls='top1';
-    else if (i === 1) cls='top2';
-    else if (i === 2) cls='top3';
-    let value = u[currentTab];
-    if(currentTab === 'pp' || currentTab === 'accuracy') {
-      const max = Math.max(...sorted.map(x=>x[currentTab]));
-      const pct = Math.round((value/max)*100);
-      value = `<span class="bar" style="width:${pct}%"></span> ${value}`;
-    }
-    tbody.innerHTML += `<tr class="${cls}"><td>${(currentPage-1)*perPage+i+1}</td><td><a href="${u.profile_url}" target="_blank">${u.username}</a></td><td>${value}</td></tr>`;
-  });
-
-  const pageDiv = document.getElementById(`${currentTab}-pages`);
-  pageDiv.innerHTML = '';
-  for(let p=1;p<=totalPages;p++){
-    pageDiv.innerHTML += `<button onclick="currentPage=${p};renderTable()">${p}</button>`;
-  }
-}
+let leaderboardData = [];
+const PER_PAGE = 50;
 
 async function load() {
   try {
     const res = await fetch('leaderboard.json', {cache:"no-store"});
+    if(!res.ok) throw new Error('Could not fetch leaderboard.json');
     const json = await res.json();
-    leaderboard = json.items || [];
-    document.getElementById('updated').textContent = new Date(json.updated_at).toLocaleString();
+
+    leaderboardData = json.items || [];
     document.getElementById('source').textContent = json.source || 'leaderboard.json';
-    renderTable();
+    document.getElementById('updated').textContent = json.updated_at ? new Date(json.updated_at).toLocaleString() : '-';
+    showPage(1);
   } catch(err) {
-    console.error(err);
+    document.getElementById('table-container').innerHTML = `<p>Error: ${err.message}</p>`;
   }
 }
 
+function showPage(page) {
+  const tbody = leaderboardData.slice((page-1)*PER_PAGE, page*PER_PAGE);
+  let html = `<table>
+    <thead><tr><th>#</th><th>Username</th><th>PP</th><th>Play Count</th></tr></thead>
+    <tbody>`;
+
+  tbody.forEach((it,i)=>{
+    const globalRank = (page-1)*PER_PAGE + i + 1;
+    let rowClass = '';
+    if(page===1){
+      if(globalRank===1) rowClass='gold';
+      else if(globalRank===2) rowClass='silver';
+      else if(globalRank===3) rowClass='bronze';
+    }
+    html += `<tr class="${rowClass}"><td>${globalRank}</td>
+      <td><a href="${it.profile_url}" target="_blank">${it.username}</a></td>
+      <td>${it.pp}</td>
+      <td>${it.play_count}</td>
+    </tr>`;
+  });
+
+  html += `</tbody></table>`;
+  document.getElementById('table-container').innerHTML = html;
+}
+
+document.getElementById('search').addEventListener('input', function(e){
+  const query = e.target.value.toLowerCase();
+  leaderboardData = leaderboardData.filter(u => u.username.toLowerCase().includes(query));
+  showPage(1);
+});
+
 load();
-setInterval(load, 3600000); // update every 1h
 </script>
 </body>
 </html>
