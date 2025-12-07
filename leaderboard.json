@@ -1,0 +1,563 @@
+{
+  "updated_at": 1765126985623,
+  "country": "IQ",
+  "data": {
+    "cursor": {
+      "page": 2
+    },
+    "cursor_string": "eyJwYWdlIjoyfQ",
+    "ranking": [
+      {
+        "code": "US",
+        "active_users": 388043,
+        "play_count": 2649398914,
+        "ranked_score": 513270886747528,
+        "performance": 1677061,
+        "country": {
+          "code": "US",
+          "name": "United States"
+        }
+      },
+      {
+        "code": "RU",
+        "active_users": 335569,
+        "play_count": 1697857885,
+        "ranked_score": 265518373169022,
+        "performance": 1463704,
+        "country": {
+          "code": "RU",
+          "name": "Russian Federation"
+        }
+      },
+      {
+        "code": "PL",
+        "active_users": 92258,
+        "play_count": 588965021,
+        "ranked_score": 111353990210499,
+        "performance": 1365618,
+        "country": {
+          "code": "PL",
+          "name": "Poland"
+        }
+      },
+      {
+        "code": "CA",
+        "active_users": 66151,
+        "play_count": 530229829,
+        "ranked_score": 107045498083480,
+        "performance": 1356403,
+        "country": {
+          "code": "CA",
+          "name": "Canada"
+        }
+      },
+      {
+        "code": "DE",
+        "active_users": 90157,
+        "play_count": 692689258,
+        "ranked_score": 156856229407103,
+        "performance": 1322190,
+        "country": {
+          "code": "DE",
+          "name": "Germany"
+        }
+      },
+      {
+        "code": "GB",
+        "active_users": 69693,
+        "play_count": 468607514,
+        "ranked_score": 93825432948622,
+        "performance": 1318311,
+        "country": {
+          "code": "GB",
+          "name": "United Kingdom"
+        }
+      },
+      {
+        "code": "KR",
+        "active_users": 32465,
+        "play_count": 204716684,
+        "ranked_score": 51385764204937,
+        "performance": 1302816,
+        "country": {
+          "code": "KR",
+          "name": "South Korea"
+        }
+      },
+      {
+        "code": "BR",
+        "active_users": 109022,
+        "play_count": 550496144,
+        "ranked_score": 81428080839696,
+        "performance": 1270871,
+        "country": {
+          "code": "BR",
+          "name": "Brazil"
+        }
+      },
+      {
+        "code": "AU",
+        "active_users": 42744,
+        "play_count": 309370425,
+        "ranked_score": 59917042083477,
+        "performance": 1266987,
+        "country": {
+          "code": "AU",
+          "name": "Australia"
+        }
+      },
+      {
+        "code": "FR",
+        "active_users": 98385,
+        "play_count": 553615858,
+        "ranked_score": 102681959847528,
+        "performance": 1245167,
+        "country": {
+          "code": "FR",
+          "name": "France"
+        }
+      },
+      {
+        "code": "JP",
+        "active_users": 122222,
+        "play_count": 572237881,
+        "ranked_score": 123061901091004,
+        "performance": 1220263,
+        "country": {
+          "code": "JP",
+          "name": "Japan"
+        }
+      },
+      {
+        "code": "PH",
+        "active_users": 78163,
+        "play_count": 515435720,
+        "ranked_score": 75566143512747,
+        "performance": 1177150,
+        "country": {
+          "code": "PH",
+          "name": "Philippines"
+        }
+      },
+      {
+        "code": "FI",
+        "active_users": 15861,
+        "play_count": 187655813,
+        "ranked_score": 42379491412498,
+        "performance": 1160872,
+        "country": {
+          "code": "FI",
+          "name": "Finland"
+        }
+      },
+      {
+        "code": "ID",
+        "active_users": 57290,
+        "play_count": 344656896,
+        "ranked_score": 63818407739180,
+        "performance": 1129143,
+        "country": {
+          "code": "ID",
+          "name": "Indonesia"
+        }
+      },
+      {
+        "code": "CL",
+        "active_users": 46830,
+        "play_count": 246614787,
+        "ranked_score": 38023783273750,
+        "performance": 1124362,
+        "country": {
+          "code": "CL",
+          "name": "Chile"
+        }
+      },
+      {
+        "code": "HK",
+        "active_users": 20537,
+        "play_count": 141580110,
+        "ranked_score": 33498143729808,
+        "performance": 1104988,
+        "country": {
+          "code": "HK",
+          "name": "Hong Kong"
+        }
+      },
+      {
+        "code": "CN",
+        "active_users": 68850,
+        "play_count": 225629355,
+        "ranked_score": 72963679323910,
+        "performance": 1090703,
+        "country": {
+          "code": "CN",
+          "name": "China"
+        }
+      },
+      {
+        "code": "UA",
+        "active_users": 59191,
+        "play_count": 290460358,
+        "ranked_score": 42227288507639,
+        "performance": 1085657,
+        "country": {
+          "code": "UA",
+          "name": "Ukraine"
+        }
+      },
+      {
+        "code": "TW",
+        "active_users": 51969,
+        "play_count": 302831796,
+        "ranked_score": 76530864697347,
+        "performance": 1077646,
+        "country": {
+          "code": "TW",
+          "name": "Taiwan"
+        }
+      },
+      {
+        "code": "SE",
+        "active_users": 14798,
+        "play_count": 140895893,
+        "ranked_score": 30410408818226,
+        "performance": 1075972,
+        "country": {
+          "code": "SE",
+          "name": "Sweden"
+        }
+      },
+      {
+        "code": "IT",
+        "active_users": 27642,
+        "play_count": 160312463,
+        "ranked_score": 28730080279604,
+        "performance": 1068614,
+        "country": {
+          "code": "IT",
+          "name": "Italy"
+        }
+      },
+      {
+        "code": "AR",
+        "active_users": 41925,
+        "play_count": 212723386,
+        "ranked_score": 33662409858224,
+        "performance": 1067987,
+        "country": {
+          "code": "AR",
+          "name": "Argentina"
+        }
+      },
+      {
+        "code": "TH",
+        "active_users": 40661,
+        "play_count": 190612268,
+        "ranked_score": 31522384047247,
+        "performance": 1061663,
+        "country": {
+          "code": "TH",
+          "name": "Thailand"
+        }
+      },
+      {
+        "code": "NL",
+        "active_users": 19005,
+        "play_count": 139676224,
+        "ranked_score": 32278297161073,
+        "performance": 1059212,
+        "country": {
+          "code": "NL",
+          "name": "Netherlands"
+        }
+      },
+      {
+        "code": "VN",
+        "active_users": 46729,
+        "play_count": 213650291,
+        "ranked_score": 36497013354155,
+        "performance": 1049054,
+        "country": {
+          "code": "VN",
+          "name": "Vietnam"
+        }
+      },
+      {
+        "code": "ES",
+        "active_users": 35025,
+        "play_count": 150345203,
+        "ranked_score": 23981478100688,
+        "performance": 1041740,
+        "country": {
+          "code": "ES",
+          "name": "Spain"
+        }
+      },
+      {
+        "code": "SG",
+        "active_users": 18127,
+        "play_count": 160661533,
+        "ranked_score": 32879300650224,
+        "performance": 1032464,
+        "country": {
+          "code": "SG",
+          "name": "Singapore"
+        }
+      },
+      {
+        "code": "NO",
+        "active_users": 7441,
+        "play_count": 83889248,
+        "ranked_score": 18917426676080,
+        "performance": 1028159,
+        "country": {
+          "code": "NO",
+          "name": "Norway"
+        }
+      },
+      {
+        "code": "MY",
+        "active_users": 33895,
+        "play_count": 227037685,
+        "ranked_score": 44353464736867,
+        "performance": 1028071,
+        "country": {
+          "code": "MY",
+          "name": "Malaysia"
+        }
+      },
+      {
+        "code": "MX",
+        "active_users": 55906,
+        "play_count": 206824977,
+        "ranked_score": 29389694838609,
+        "performance": 1016628,
+        "country": {
+          "code": "MX",
+          "name": "Mexico"
+        }
+      },
+      {
+        "code": "TR",
+        "active_users": 38354,
+        "play_count": 132716274,
+        "ranked_score": 18689147150298,
+        "performance": 987342,
+        "country": {
+          "code": "TR",
+          "name": "Türkiye"
+        }
+      },
+      {
+        "code": "NZ",
+        "active_users": 8040,
+        "play_count": 63003755,
+        "ranked_score": 13181806691924,
+        "performance": 977485,
+        "country": {
+          "code": "NZ",
+          "name": "New Zealand"
+        }
+      },
+      {
+        "code": "RO",
+        "active_users": 13835,
+        "play_count": 82068961,
+        "ranked_score": 15031658478066,
+        "performance": 976977,
+        "country": {
+          "code": "RO",
+          "name": "Romania"
+        }
+      },
+      {
+        "code": "CZ",
+        "active_users": 19319,
+        "play_count": 99135988,
+        "ranked_score": 18890154642417,
+        "performance": 963260,
+        "country": {
+          "code": "CZ",
+          "name": "Czechia"
+        }
+      },
+      {
+        "code": "KZ",
+        "active_users": 15945,
+        "play_count": 88176392,
+        "ranked_score": 14285948169659,
+        "performance": 948938,
+        "country": {
+          "code": "KZ",
+          "name": "Kazakhstan"
+        }
+      },
+      {
+        "code": "HU",
+        "active_users": 13693,
+        "play_count": 79693267,
+        "ranked_score": 14526625329900,
+        "performance": 942070,
+        "country": {
+          "code": "HU",
+          "name": "Hungary"
+        }
+      },
+      {
+        "code": "AT",
+        "active_users": 9628,
+        "play_count": 74994749,
+        "ranked_score": 16113432905987,
+        "performance": 935905,
+        "country": {
+          "code": "AT",
+          "name": "Austria"
+        }
+      },
+      {
+        "code": "DK",
+        "active_users": 5903,
+        "play_count": 55065339,
+        "ranked_score": 12115028094269,
+        "performance": 930794,
+        "country": {
+          "code": "DK",
+          "name": "Denmark"
+        }
+      },
+      {
+        "code": "LT",
+        "active_users": 8226,
+        "play_count": 62759901,
+        "ranked_score": 14309601735918,
+        "performance": 930595,
+        "country": {
+          "code": "LT",
+          "name": "Lithuania"
+        }
+      },
+      {
+        "code": "IL",
+        "active_users": 7887,
+        "play_count": 58043980,
+        "ranked_score": 9601626447834,
+        "performance": 928583,
+        "country": {
+          "code": "IL",
+          "name": "Israel"
+        }
+      },
+      {
+        "code": "PT",
+        "active_users": 11754,
+        "play_count": 76236212,
+        "ranked_score": 13245922170778,
+        "performance": 922582,
+        "country": {
+          "code": "PT",
+          "name": "Portugal"
+        }
+      },
+      {
+        "code": "BY",
+        "active_users": 19119,
+        "play_count": 89057969,
+        "ranked_score": 13698127706681,
+        "performance": 921416,
+        "country": {
+          "code": "BY",
+          "name": "Belarus"
+        }
+      },
+      {
+        "code": "BE",
+        "active_users": 12022,
+        "play_count": 72208227,
+        "ranked_score": 15727348505904,
+        "performance": 898230,
+        "country": {
+          "code": "BE",
+          "name": "Belgium"
+        }
+      },
+      {
+        "code": "PE",
+        "active_users": 29927,
+        "play_count": 117835645,
+        "ranked_score": 15564649126727,
+        "performance": 882318,
+        "country": {
+          "code": "PE",
+          "name": "Peru"
+        }
+      },
+      {
+        "code": "EE",
+        "active_users": 5482,
+        "play_count": 40672100,
+        "ranked_score": 8177163679431,
+        "performance": 862086,
+        "country": {
+          "code": "EE",
+          "name": "Estonia"
+        }
+      },
+      {
+        "code": "GR",
+        "active_users": 7442,
+        "play_count": 46806541,
+        "ranked_score": 8054236956530,
+        "performance": 857491,
+        "country": {
+          "code": "GR",
+          "name": "Greece"
+        }
+      },
+      {
+        "code": "SK",
+        "active_users": 6157,
+        "play_count": 36283891,
+        "ranked_score": 7083852882768,
+        "performance": 825132,
+        "country": {
+          "code": "SK",
+          "name": "Slovakia"
+        }
+      },
+      {
+        "code": "LV",
+        "active_users": 5949,
+        "play_count": 39335497,
+        "ranked_score": 7455415261474,
+        "performance": 814647,
+        "country": {
+          "code": "LV",
+          "name": "Latvia"
+        }
+      },
+      {
+        "code": "CH",
+        "active_users": 6878,
+        "play_count": 44989357,
+        "ranked_score": 10080597963880,
+        "performance": 814483,
+        "country": {
+          "code": "CH",
+          "name": "Switzerland"
+        }
+      },
+      {
+        "code": "BG",
+        "active_users": 6191,
+        "play_count": 38589452,
+        "ranked_score": 6701652493118,
+        "performance": 809686,
+        "country": {
+          "code": "BG",
+          "name": "Bulgaria"
+        }
+      }
+    ],
+    "total": 229
+  }
+}
