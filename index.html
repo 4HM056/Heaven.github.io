@@ -1,106 +1,135 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8" />
-  <title>Osu! Iraq Leaderboard</title>
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <style>
-    body { font-family: Arial, sans-serif; padding: 20px; max-width: 1200px; margin: auto; }
-    table { border-collapse: collapse; width: 100%; margin-top: 10px; }
-    th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
-    th { background: #f4f4f4; cursor: pointer; }
-    .avatar { width: 32px; height: 32px; border-radius: 50%; vertical-align: middle; margin-right: 8px; }
-    .top1 { background-color: gold; }
-    .top2 { background-color: silver; }
-    .top3 { background-color: #cd7f32; }
-    .tabs { display: flex; margin-top: 20px; }
-    .tab { padding: 10px 20px; margin-right: 5px; cursor: pointer; border: 1px solid #ccc; border-bottom: none; }
-    .tab.active { background: #f4f4f4; font-weight: bold; }
-    .tab-content { border: 1px solid #ccc; padding: 10px; display: none; }
-    .tab-content.active { display: block; }
-    input.search { margin-top: 10px; padding: 5px; width: 200px; }
-  </style>
+<meta charset="utf-8">
+<title>Osu! Iraq Leaderboard</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<style>
+body { font-family: Arial, sans-serif; padding: 20px; max-width: 1200px; margin: auto; }
+table { border-collapse: collapse; width: 100%; }
+th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+th { background: #f4f4f4; cursor: pointer; }
+.small { font-size: .9em; color: #666; }
+.top1 { background: gold; font-weight: bold; }
+.top2 { background: silver; font-weight: bold; }
+.top3 { background: #cd7f32; font-weight: bold; }
+.bar { display: inline-block; height: 10px; background: #4CAF50; }
+.tab { display: none; }
+.tab.active { display: block; }
+button.tablink { margin-right: 5px; padding: 5px 10px; }
+input#search { margin: 10px 0; padding: 5px; width: 200px; }
+.pagination { margin: 10px 0; }
+.pagination button { padding: 5px 10px; margin-right: 5px; }
+</style>
 </head>
 <body>
-  <h1>Osu! Iraq Leaderboard</h1>
-  <p class="small">Auto-updated via GitHub Actions. Using official osu! API v2.</p>
-  <p>Last update: <span id="updated">-</span></p>
+<h1>Osu! Iraq Leaderboard</h1>
+<p class="small">Auto-updated via GitHub Actions. Data for country <strong>IQ</strong>.</p>
+<p>Last update: <span id="updated">-</span> — Source: <span id="source">leaderboard.json</span></p>
 
-  <input type="text" id="searchBox" class="search" placeholder="Search player...">
+<div>
+<button class="tablink" onclick="openTab('pp')">PP</button>
+<button class="tablink" onclick="openTab('accuracy')">Accuracy</button>
+<button class="tablink" onclick="openTab('play_count')">Play Count</button>
+<button class="tablink" onclick="openTab('ss_count')">SS Count</button>
+<button class="tablink" onclick="openTab('ranked_score')">Ranked Score</button>
+<input type="text" id="search" placeholder="Search username..." oninput="filterTable()">
+</div>
 
-  <div class="tabs">
-    <div class="tab active" data-tab="pp">PP</div>
-    <div class="tab" data-tab="accuracy">Accuracy</div>
-    <div class="tab" data-tab="play_count">Play Count</div>
-    <div class="tab" data-tab="top_plays">Top Plays</div>
-    <div class="tab" data-tab="ss_count">SS Count</div>
-  </div>
+<div class="tab active" id="pp">
+  <table aria-live="polite"><thead><tr><th>#</th><th>Username</th><th>PP</th></tr></thead><tbody></tbody></table>
+  <div class="pagination" id="pp-pages"></div>
+</div>
 
-  <div id="pp" class="tab-content active"><table><thead><tr><th>#</th><th>User</th><th>PP</th></tr></thead><tbody></tbody></table></div>
-  <div id="accuracy" class="tab-content"><table><thead><tr><th>#</th><th>User</th><th>Accuracy</th></tr></thead><tbody></tbody></table></div>
-  <div id="play_count" class="tab-content"><table><thead><tr><th>#</th><th>User</th><th>Play Count</th></tr></thead><tbody></tbody></table></div>
-  <div id="top_plays" class="tab-content"><table><thead><tr><th>#</th><th>User</th><th>Top Plays</th></tr></thead><tbody></tbody></table></div>
-  <div id="ss_count" class="tab-content"><table><thead><tr><th>#</th><th>User</th><th>SS Count</th></tr></thead><tbody></tbody></table></div>
+<div class="tab" id="accuracy">
+  <table><thead><tr><th>#</th><th>Username</th><th>Accuracy</th></tr></thead><tbody></tbody></table>
+  <div class="pagination" id="accuracy-pages"></div>
+</div>
+
+<div class="tab" id="play_count">
+  <table><thead><tr><th>#</th><th>Username</th><th>Play Count</th></tr></thead><tbody></tbody></table>
+  <div class="pagination" id="play_count-pages"></div>
+</div>
+
+<div class="tab" id="ss_count">
+  <table><thead><tr><th>#</th><th>Username</th><th>SS Count</th></tr></thead><tbody></tbody></table>
+  <div class="pagination" id="ss_count-pages"></div>
+</div>
+
+<div class="tab" id="ranked_score">
+  <table><thead><tr><th>#</th><th>Username</th><th>Ranked Score</th></tr></thead><tbody></tbody></table>
+  <div class="pagination" id="ranked_score-pages"></div>
+</div>
 
 <script>
+let leaderboard = [];
+let currentTab = 'pp';
+let currentPage = 1;
+const perPage = 50;
+
+function openTab(tab) {
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById(tab).classList.add('active');
+  currentTab = tab;
+  currentPage = 1;
+  renderTable();
+}
+
+function filterTable() {
+  renderTable();
+}
+
+function paginate(items) {
+  const pages = Math.ceil(items.length / perPage);
+  const start = (currentPage - 1) * perPage;
+  const end = start + perPage;
+  return [items.slice(start, end), pages];
+}
+
+function renderTable() {
+  const filtered = leaderboard.filter(u => u.username.toLowerCase().includes(document.getElementById('search').value.toLowerCase()));
+  let sorted = [...filtered];
+  sorted.sort((a,b) => b[currentTab] - a[currentTab]);
+  const [pageItems, totalPages] = paginate(sorted);
+
+  const tbody = document.querySelector(`#${currentTab} tbody`);
+  tbody.innerHTML = '';
+  pageItems.forEach((u, i) => {
+    let cls = '';
+    if (i === 0) cls='top1';
+    else if (i === 1) cls='top2';
+    else if (i === 2) cls='top3';
+    let value = u[currentTab];
+    if(currentTab === 'pp' || currentTab === 'accuracy') {
+      const max = Math.max(...sorted.map(x=>x[currentTab]));
+      const pct = Math.round((value/max)*100);
+      value = `<span class="bar" style="width:${pct}%"></span> ${value}`;
+    }
+    tbody.innerHTML += `<tr class="${cls}"><td>${(currentPage-1)*perPage+i+1}</td><td><a href="${u.profile_url}" target="_blank">${u.username}</a></td><td>${value}</td></tr>`;
+  });
+
+  const pageDiv = document.getElementById(`${currentTab}-pages`);
+  pageDiv.innerHTML = '';
+  for(let p=1;p<=totalPages;p++){
+    pageDiv.innerHTML += `<button onclick="currentPage=${p};renderTable()">${p}</button>`;
+  }
+}
+
 async function load() {
   try {
-    const res = await fetch('leaderboard.json', {cache: "no-store"});
+    const res = await fetch('leaderboard.json', {cache:"no-store"});
     const json = await res.json();
-
+    leaderboard = json.items || [];
     document.getElementById('updated').textContent = new Date(json.updated_at).toLocaleString();
-    const items = json.items || [];
-
-    function render(tableId, key) {
-      const tbody = document.querySelector(`#${tableId} tbody`);
-      tbody.innerHTML = '';
-      let filtered = items;
-
-      const search = document.getElementById('searchBox').value.toLowerCase();
-      if(search) filtered = filtered.filter(p => p.username.toLowerCase().includes(search));
-
-      filtered.sort((a,b)=> (b[key]||0)-(a[key]||0))
-              .slice(0,100)
-              .forEach((p,i)=>{
-        const tr = document.createElement('tr');
-        if(i===0) tr.classList.add('top1');
-        else if(i===1) tr.classList.add('top2');
-        else if(i===2) tr.classList.add('top3');
-        tr.innerHTML = `
-          <td>${i+1}</td>
-          <td><img src="${p.avatar_url}" class="avatar">
-              <a href="${p.profile_url}" target="_blank">${p.username}</a></td>
-          <td>${p[key]}</td>
-        `;
-        tbody.appendChild(tr);
-      });
-    }
-
-    ['pp','accuracy','play_count','top_plays','ss_count'].forEach(k=> render(k,k));
-
-    document.getElementById('searchBox').addEventListener('input', ()=>{
-      ['pp','accuracy','play_count','top_plays','ss_count'].forEach(k=> render(k,k));
-    });
-
-  } catch(err){
+    document.getElementById('source').textContent = json.source || 'leaderboard.json';
+    renderTable();
+  } catch(err) {
     console.error(err);
   }
 }
 
 load();
-setInterval(load, 60000);
-
-document.querySelectorAll('.tab').forEach(tab=>{
-  tab.addEventListener('click', ()=>{
-    document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
-    tab.classList.add('active');
-    const tabName = tab.dataset.tab;
-    document.querySelectorAll('.tab-content').forEach(tc=>{
-      tc.classList.remove('active');
-    });
-    document.getElementById(tabName).classList.add('active');
-  });
-});
+setInterval(load, 3600000); // update every 1h
 </script>
 </body>
 </html>
