@@ -1,5 +1,5 @@
 {
-  "updated_at": "2025-12-08T11:18:26.911Z",
+  "updated_at": "2025-12-08T12:41:04.280Z",
   "country": "IQ",
   "source": "osu API v2",
   "total": 50,
@@ -277,8 +277,8 @@
     {
       "username": "kartel",
       "user_id": 16368385,
-      "pp": 4903.85,
-      "rank": 103015,
+      "pp": 4904.22,
+      "rank": 103018,
       "country_rank": 31,
       "avatar_url": "https://a.ppy.sh/16368385?1635620370.jpeg",
       "profile_url": "https://osu.ppy.sh/users/16368385"
