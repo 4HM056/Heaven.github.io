@@ -1,5 +1,5 @@
 {
-  "updated_at": "2025-12-10T15:24:30.284Z",
+  "updated_at": "2025-12-10T16:27:15.381Z",
   "country": "IQ",
   "source": "osu API v2",
   "total": 50,
@@ -53,7 +53,7 @@
       "username": "Boiled_Aids",
       "user_id": 11706528,
       "pp": 8633.33,
-      "rank": 14031,
+      "rank": 14038,
       "country_rank": 6,
       "avatar_url": "https://a.ppy.sh/11706528?1732803479.jpeg",
       "profile_url": "https://osu.ppy.sh/users/11706528"
@@ -395,7 +395,7 @@
       "username": "Quake203",
       "user_id": 22846495,
       "pp": 3999.72,
-      "rank": 162129,
+      "rank": 162180,
       "country_rank": 44,
       "avatar_url": "https://a.ppy.sh/22846495?1739300071.jpeg",
       "profile_url": "https://osu.ppy.sh/users/22846495"
