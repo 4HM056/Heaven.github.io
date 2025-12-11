@@ -1,5 +1,5 @@
 {
-  "updated_at": "2025-12-11T08:29:04.639Z",
+  "updated_at": "2025-12-11T09:25:28.614Z",
   "country": "IQ",
   "source": "osu API v2",
   "total": 50,
@@ -52,8 +52,8 @@
     {
       "username": "Boiled_Aids",
       "user_id": 11706528,
-      "pp": 8633.33,
-      "rank": 14045,
+      "pp": 8633.74,
+      "rank": 14046,
       "country_rank": 6,
       "avatar_url": "https://a.ppy.sh/11706528?1732803479.jpeg",
       "profile_url": "https://osu.ppy.sh/users/11706528"
