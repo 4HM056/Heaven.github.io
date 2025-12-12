@@ -1,4 +1,3 @@
-// fetch.js — Official osu! API Version
 const axios = require("axios");
 const fs = require("fs");
 
