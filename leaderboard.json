@@ -1,5 +1,5 @@
 {
-  "updated_at": "2025-12-15T07:23:47.802Z",
+  "updated_at": "2025-12-15T09:31:12.186Z",
   "country": "IQ",
   "source": "osu API v2",
   "total": 50,
@@ -187,8 +187,8 @@
     {
       "username": "Kaiju13",
       "user_id": 26916963,
-      "pp": 5726.35,
-      "rank": 66056,
+      "pp": 5737.48,
+      "rank": 65645,
       "country_rank": 21,
       "avatar_url": "https://a.ppy.sh/26916963?1762375518.png",
       "profile_url": "https://osu.ppy.sh/users/26916963"
@@ -205,7 +205,7 @@
     {
       "username": "zero702",
       "user_id": 25897488,
-      "pp": 5351.52,
+      "pp": 5351.85,
       "rank": 81320,
       "country_rank": 23,
       "avatar_url": "https://a.ppy.sh/25897488?1726932553.jpeg",
