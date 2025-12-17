@@ -1,5 +1,5 @@
 {
-  "updated_at": "2025-12-17T13:32:55.043Z",
+  "updated_at": "2025-12-17T14:21:40.286Z",
   "country": "IQ",
   "source": "osu API v2",
   "total": 50,
@@ -403,8 +403,8 @@
     {
       "username": "saksokse",
       "user_id": 30691917,
-      "pp": 3947.69,
-      "rank": 167183,
+      "pp": 3951.27,
+      "rank": 166878,
       "country_rank": 45,
       "avatar_url": "https://a.ppy.sh/30691917?1678673120.jpeg",
       "profile_url": "https://osu.ppy.sh/users/30691917"
