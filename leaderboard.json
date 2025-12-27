@@ -1,5 +1,5 @@
 {
-  "updated_at": "2025-12-27T04:31:47.809Z",
+  "updated_at": "2025-12-27T05:20:51.545Z",
   "country": "IQ",
   "source": "osu API v2",
   "total": 50,
@@ -295,8 +295,8 @@
     {
       "username": "Bappo_1337",
       "user_id": 21688901,
-      "pp": 4692.29,
-      "rank": 115981,
+      "pp": 4693.09,
+      "rank": 115930,
       "country_rank": 33,
       "avatar_url": "https://a.ppy.sh/21688901?1756738715.jpeg",
       "profile_url": "https://osu.ppy.sh/users/21688901"
