@@ -1,5 +1,5 @@
 {
-  "updated_at": "2025-12-29T20:23:18.500Z",
+  "updated_at": "2025-12-29T21:18:19.694Z",
   "country": "IQ",
   "source": "osu API v2",
   "total": 50,
@@ -107,7 +107,7 @@
       "username": "Kamioo",
       "user_id": 19494788,
       "pp": 6541.26,
-      "rank": 42909,
+      "rank": 42932,
       "country_rank": 12,
       "avatar_url": "https://a.ppy.sh/19494788?1745248414.jpeg",
       "profile_url": "https://osu.ppy.sh/users/19494788"
@@ -169,8 +169,8 @@
     {
       "username": "Meaco",
       "user_id": 32837861,
-      "pp": 6070.74,
-      "rank": 55469,
+      "pp": 6071.86,
+      "rank": 55437,
       "country_rank": 19,
       "avatar_url": "https://a.ppy.sh/32837861?1763255769.jpeg",
       "profile_url": "https://osu.ppy.sh/users/32837861"
@@ -221,22 +221,22 @@
       "profile_url": "https://osu.ppy.sh/users/30284199"
     },
     {
+      "username": "LilyNightMoon",
+      "user_id": 18771081,
+      "pp": 5251.33,
+      "rank": 86608,
+      "country_rank": 25,
+      "avatar_url": "https://a.ppy.sh/18771081?1750451975.jpeg",
+      "profile_url": "https://osu.ppy.sh/users/18771081"
+    },
+    {
       "username": "zeno_",
       "user_id": 25313184,
       "pp": 5241.83,
       "rank": 87016,
-      "country_rank": 25,
+      "country_rank": 26,
       "avatar_url": "https://a.ppy.sh/25313184?1689762472.jpeg",
       "profile_url": "https://osu.ppy.sh/users/25313184"
-    },
-    {
-      "username": "LilyNightMoon",
-      "user_id": 18771081,
-      "pp": 5225.55,
-      "rank": 87823,
-      "country_rank": 26,
-      "avatar_url": "https://a.ppy.sh/18771081?1750451975.jpeg",
-      "profile_url": "https://osu.ppy.sh/users/18771081"
     },
     {
       "username": "Dash_9274",
