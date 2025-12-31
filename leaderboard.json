@@ -1,5 +1,5 @@
 {
-  "updated_at": "2025-12-31T01:40:56.652Z",
+  "updated_at": "2025-12-31T03:26:18.461Z",
   "country": "IQ",
   "source": "osu API v2",
   "total": 50,
@@ -124,8 +124,8 @@
     {
       "username": "Sola",
       "user_id": 12357263,
-      "pp": 6424.63,
-      "rank": 45793,
+      "pp": 6424.69,
+      "rank": 45812,
       "country_rank": 14,
       "avatar_url": "https://a.ppy.sh/12357263?1765597428.jpeg",
       "profile_url": "https://osu.ppy.sh/users/12357263"
