@@ -1,5 +1,5 @@
 {
-  "updated_at": "2025-12-31T23:19:05.394Z",
+  "updated_at": "2026-01-01T01:50:29.743Z",
   "country": "IQ",
   "source": "osu API v2",
   "total": 50,
@@ -35,7 +35,7 @@
       "username": "Y a d",
       "user_id": 19521102,
       "pp": 8869.57,
-      "rank": 12581,
+      "rank": 12587,
       "country_rank": 4,
       "avatar_url": "https://a.ppy.sh/19521102?1735975550.jpeg",
       "profile_url": "https://osu.ppy.sh/users/19521102"
@@ -124,8 +124,8 @@
     {
       "username": "Sola",
       "user_id": 12357263,
-      "pp": 6431.77,
-      "rank": 45694,
+      "pp": 6431.78,
+      "rank": 45677,
       "country_rank": 14,
       "avatar_url": "https://a.ppy.sh/12357263?1765597428.jpeg",
       "profile_url": "https://osu.ppy.sh/users/12357263"
@@ -241,8 +241,8 @@
     {
       "username": "Dash_9274",
       "user_id": 13289058,
-      "pp": 5094.65,
-      "rank": 94386,
+      "pp": 5098.84,
+      "rank": 94217,
       "country_rank": 27,
       "avatar_url": "https://a.ppy.sh/13289058?1694613073.jpeg",
       "profile_url": "https://osu.ppy.sh/users/13289058"
@@ -395,7 +395,7 @@
       "username": "saksokse",
       "user_id": 30691917,
       "pp": 4086.79,
-      "rank": 157605,
+      "rank": 157617,
       "country_rank": 44,
       "avatar_url": "https://a.ppy.sh/30691917?1678673120.jpeg",
       "profile_url": "https://osu.ppy.sh/users/30691917"
