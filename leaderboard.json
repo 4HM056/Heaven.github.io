@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-01-01T23:19:14.354Z",
+  "updated_at": "2026-01-02T01:42:25.755Z",
   "country": "IQ",
   "source": "osu API v2",
   "total": 50,
@@ -80,7 +80,7 @@
       "username": "Biscuits0",
       "user_id": 23843313,
       "pp": 7841.12,
-      "rank": 21335,
+      "rank": 21346,
       "country_rank": 9,
       "avatar_url": "https://a.ppy.sh/23843313?1761953627.jpeg",
       "profile_url": "https://osu.ppy.sh/users/23843313"
@@ -178,8 +178,8 @@
     {
       "username": "Kaiju13",
       "user_id": 26916963,
-      "pp": 6002.22,
-      "rank": 57626,
+      "pp": 6002.75,
+      "rank": 57612,
       "country_rank": 20,
       "avatar_url": "https://a.ppy.sh/26916963?1767301791.jpeg",
       "profile_url": "https://osu.ppy.sh/users/26916963"
@@ -214,8 +214,8 @@
     {
       "username": "LilyNightMoon",
       "user_id": 18771081,
-      "pp": 5286.37,
-      "rank": 85075,
+      "pp": 5323.02,
+      "rank": 83436,
       "country_rank": 24,
       "avatar_url": "https://a.ppy.sh/18771081?1750451975.jpeg",
       "profile_url": "https://osu.ppy.sh/users/18771081"
@@ -296,7 +296,7 @@
       "username": "Bappo_1337",
       "user_id": 21688901,
       "pp": 4717.05,
-      "rank": 114878,
+      "rank": 114904,
       "country_rank": 33,
       "avatar_url": "https://a.ppy.sh/21688901?1756738715.jpeg",
       "profile_url": "https://osu.ppy.sh/users/21688901"
@@ -395,7 +395,7 @@
       "username": "saksokse",
       "user_id": 30691917,
       "pp": 4087.65,
-      "rank": 157596,
+      "rank": 157616,
       "country_rank": 44,
       "avatar_url": "https://a.ppy.sh/30691917?1678673120.jpeg",
       "profile_url": "https://osu.ppy.sh/users/30691917"
