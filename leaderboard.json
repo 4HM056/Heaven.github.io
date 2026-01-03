@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-01-03T16:23:54.591Z",
+  "updated_at": "2026-01-03T17:17:04.932Z",
   "country": "IQ",
   "source": "osu API v2",
   "total": 50,
@@ -394,8 +394,8 @@
     {
       "username": "saksokse",
       "user_id": 30691917,
-      "pp": 4088.73,
-      "rank": 157634,
+      "pp": 4088.79,
+      "rank": 157678,
       "country_rank": 44,
       "avatar_url": "https://a.ppy.sh/30691917?1678673120.jpeg",
       "profile_url": "https://osu.ppy.sh/users/30691917"
@@ -446,13 +446,13 @@
       "profile_url": "https://osu.ppy.sh/users/14515694"
     },
     {
-      "username": "Andr0_Meda",
-      "user_id": 7376292,
-      "pp": 3747.85,
-      "rank": 186646,
+      "username": "Zhu Xi",
+      "user_id": 38045718,
+      "pp": 3784.01,
+      "rank": 183319,
       "country_rank": 50,
-      "avatar_url": "https://a.ppy.sh/7376292?1596478605.jpeg",
-      "profile_url": "https://osu.ppy.sh/users/7376292"
+      "avatar_url": "https://a.ppy.sh/38045718?1750399186.jpeg",
+      "profile_url": "https://osu.ppy.sh/users/38045718"
     }
   ]
 }
