@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-01-07T07:24:38.091Z",
+  "updated_at": "2026-01-07T08:29:49.914Z",
   "country": "IQ",
   "source": "osu API v2",
   "total": 50,
@@ -169,8 +169,8 @@
     {
       "username": "Kaiju13",
       "user_id": 26916963,
-      "pp": 6072.09,
-      "rank": 55693,
+      "pp": 6072.16,
+      "rank": 55691,
       "country_rank": 19,
       "avatar_url": "https://a.ppy.sh/26916963?1767301791.jpeg",
       "profile_url": "https://osu.ppy.sh/users/26916963"
