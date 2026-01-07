@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-01-07T06:32:57.780Z",
+  "updated_at": "2026-01-07T07:24:38.091Z",
   "country": "IQ",
   "source": "osu API v2",
   "total": 50,
@@ -167,22 +167,22 @@
       "profile_url": "https://osu.ppy.sh/users/25015591"
     },
     {
+      "username": "Kaiju13",
+      "user_id": 26916963,
+      "pp": 6072.09,
+      "rank": 55693,
+      "country_rank": 19,
+      "avatar_url": "https://a.ppy.sh/26916963?1767301791.jpeg",
+      "profile_url": "https://osu.ppy.sh/users/26916963"
+    },
+    {
       "username": "Meaco",
       "user_id": 32837861,
       "pp": 6072.01,
       "rank": 55690,
-      "country_rank": 19,
+      "country_rank": 20,
       "avatar_url": "https://a.ppy.sh/32837861?1763255769.jpeg",
       "profile_url": "https://osu.ppy.sh/users/32837861"
-    },
-    {
-      "username": "Kaiju13",
-      "user_id": 26916963,
-      "pp": 6053.41,
-      "rank": 56251,
-      "country_rank": 20,
-      "avatar_url": "https://a.ppy.sh/26916963?1767301791.jpeg",
-      "profile_url": "https://osu.ppy.sh/users/26916963"
     },
     {
       "username": "Ali Ahmed",
