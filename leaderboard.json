@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-01-08T21:20:26.141Z",
+  "updated_at": "2026-01-08T22:20:29.879Z",
   "country": "IQ",
   "source": "osu API v2",
   "total": 50,
@@ -62,7 +62,7 @@
       "username": "ghoul534",
       "user_id": 24991953,
       "pp": 8103.61,
-      "rank": 18833,
+      "rank": 18836,
       "country_rank": 7,
       "avatar_url": "https://a.ppy.sh/24991953?1747400265.png",
       "profile_url": "https://osu.ppy.sh/users/24991953"
@@ -80,7 +80,7 @@
       "username": "Biscuits0",
       "user_id": 23843313,
       "pp": 7892.5,
-      "rank": 20881,
+      "rank": 20883,
       "country_rank": 9,
       "avatar_url": "https://a.ppy.sh/23843313?1761953627.jpeg",
       "profile_url": "https://osu.ppy.sh/users/23843313"
@@ -170,7 +170,7 @@
       "username": "Kaiju13",
       "user_id": 26916963,
       "pp": 6072.24,
-      "rank": 55735,
+      "rank": 55736,
       "country_rank": 19,
       "avatar_url": "https://a.ppy.sh/26916963?1767301791.jpeg",
       "profile_url": "https://osu.ppy.sh/users/26916963"
