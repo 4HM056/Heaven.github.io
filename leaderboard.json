@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-01-07T23:19:44.639Z",
+  "updated_at": "2026-01-08T01:42:28.290Z",
   "country": "IQ",
   "source": "osu API v2",
   "total": 50,
@@ -439,8 +439,8 @@
     {
       "username": "Zhu Xi",
       "user_id": 38045718,
-      "pp": 3821.31,
-      "rank": 180307,
+      "pp": 3825.31,
+      "rank": 180013,
       "country_rank": 49,
       "avatar_url": "https://a.ppy.sh/38045718?1750399186.jpeg",
       "profile_url": "https://osu.ppy.sh/users/38045718"
