@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-01-10T22:18:55.662Z",
+  "updated_at": "2026-01-10T23:18:41.316Z",
   "country": "IQ",
   "source": "osu API v2",
   "total": 50,
@@ -428,22 +428,22 @@
       "profile_url": "https://osu.ppy.sh/users/10876278"
     },
     {
+      "username": "Zhu Xi",
+      "user_id": 38045718,
+      "pp": 3839.93,
+      "rank": 179054,
+      "country_rank": 48,
+      "avatar_url": "https://a.ppy.sh/38045718?1750399186.jpeg",
+      "profile_url": "https://osu.ppy.sh/users/38045718"
+    },
+    {
       "username": "po11op",
       "user_id": 36738602,
       "pp": 3837.45,
       "rank": 179262,
-      "country_rank": 48,
+      "country_rank": 49,
       "avatar_url": "https://a.ppy.sh/36738602?1740343348.jpeg",
       "profile_url": "https://osu.ppy.sh/users/36738602"
-    },
-    {
-      "username": "Zhu Xi",
-      "user_id": 38045718,
-      "pp": 3827.48,
-      "rank": 180132,
-      "country_rank": 49,
-      "avatar_url": "https://a.ppy.sh/38045718?1750399186.jpeg",
-      "profile_url": "https://osu.ppy.sh/users/38045718"
     },
     {
       "username": "Ramris",
