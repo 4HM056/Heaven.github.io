@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-01-11T01:50:39.594Z",
+  "updated_at": "2026-01-11T03:49:44.510Z",
   "country": "IQ",
   "source": "osu API v2",
   "total": 50,
@@ -158,22 +158,22 @@
       "profile_url": "https://osu.ppy.sh/users/23830344"
     },
     {
+      "username": "Kaiju13",
+      "user_id": 26916963,
+      "pp": 6110.87,
+      "rank": 54706,
+      "country_rank": 18,
+      "avatar_url": "https://a.ppy.sh/26916963?1767301791.jpeg",
+      "profile_url": "https://osu.ppy.sh/users/26916963"
+    },
+    {
       "username": "0ilen",
       "user_id": 25015591,
       "pp": 6088.95,
       "rank": 55302,
-      "country_rank": 18,
+      "country_rank": 19,
       "avatar_url": "https://a.ppy.sh/25015591?1749424356.jpeg",
       "profile_url": "https://osu.ppy.sh/users/25015591"
-    },
-    {
-      "username": "Kaiju13",
-      "user_id": 26916963,
-      "pp": 6079.16,
-      "rank": 55606,
-      "country_rank": 19,
-      "avatar_url": "https://a.ppy.sh/26916963?1767301791.jpeg",
-      "profile_url": "https://osu.ppy.sh/users/26916963"
     },
     {
       "username": "Meaco",
@@ -419,22 +419,22 @@
       "profile_url": "https://osu.ppy.sh/users/20588182"
     },
     {
+      "username": "Zhu Xi",
+      "user_id": 38045718,
+      "pp": 3842.76,
+      "rank": 178836,
+      "country_rank": 47,
+      "avatar_url": "https://a.ppy.sh/38045718?1750399186.jpeg",
+      "profile_url": "https://osu.ppy.sh/users/38045718"
+    },
+    {
       "username": "MoNsTAR22",
       "user_id": 10876278,
       "pp": 3841.96,
       "rank": 178809,
-      "country_rank": 47,
+      "country_rank": 48,
       "avatar_url": "https://a.ppy.sh/10876278?1750718602.jpeg",
       "profile_url": "https://osu.ppy.sh/users/10876278"
-    },
-    {
-      "username": "Zhu Xi",
-      "user_id": 38045718,
-      "pp": 3839.93,
-      "rank": 179054,
-      "country_rank": 48,
-      "avatar_url": "https://a.ppy.sh/38045718?1750399186.jpeg",
-      "profile_url": "https://osu.ppy.sh/users/38045718"
     },
     {
       "username": "po11op",
