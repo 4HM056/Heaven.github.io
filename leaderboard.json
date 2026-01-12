@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-01-12T01:47:17.007Z",
+  "updated_at": "2026-01-12T03:48:41.393Z",
   "country": "IQ",
   "source": "osu API v2",
   "total": 50,
@@ -10,7 +10,7 @@
       "pp": 11530.1,
       "rank": 3198,
       "country_rank": 1,
-      "avatar_url": "https://a.ppy.sh/10286650?1760362691.jpeg",
+      "avatar_url": "https://a.ppy.sh/10286650?1768189294.jpeg",
       "profile_url": "https://osu.ppy.sh/users/10286650"
     },
     {
@@ -125,7 +125,7 @@
       "username": "Sola",
       "user_id": 12357263,
       "pp": 6434.38,
-      "rank": 45855,
+      "rank": 45881,
       "country_rank": 14,
       "avatar_url": "https://a.ppy.sh/12357263?1765597428.jpeg",
       "profile_url": "https://osu.ppy.sh/users/12357263"
@@ -421,8 +421,8 @@
     {
       "username": "Zhu Xi",
       "user_id": 38045718,
-      "pp": 3842.76,
-      "rank": 178834,
+      "pp": 3875.46,
+      "rank": 175983,
       "country_rank": 47,
       "avatar_url": "https://a.ppy.sh/38045718?1750399186.jpeg",
       "profile_url": "https://osu.ppy.sh/users/38045718"
