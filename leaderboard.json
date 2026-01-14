@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-01-14T20:20:47.594Z",
+  "updated_at": "2026-01-14T21:21:01.030Z",
   "country": "IQ",
   "source": "osu API v2",
   "total": 50,
@@ -62,7 +62,7 @@
       "username": "ghoul534",
       "user_id": 24991953,
       "pp": 8105.94,
-      "rank": 18872,
+      "rank": 18883,
       "country_rank": 7,
       "avatar_url": "https://a.ppy.sh/24991953?1747400265.png",
       "profile_url": "https://osu.ppy.sh/users/24991953"
@@ -71,7 +71,7 @@
       "username": "ILOVEOSUTEAM",
       "user_id": 20112002,
       "pp": 8091.42,
-      "rank": 19008,
+      "rank": 19016,
       "country_rank": 8,
       "avatar_url": "https://a.ppy.sh/20112002?1746242562.jpeg",
       "profile_url": "https://osu.ppy.sh/users/20112002"
@@ -385,8 +385,8 @@
     {
       "username": "saksokse",
       "user_id": 30691917,
-      "pp": 4182.53,
-      "rank": 151296,
+      "pp": 4182.6,
+      "rank": 151291,
       "country_rank": 43,
       "avatar_url": "https://a.ppy.sh/30691917?1678673120.jpeg",
       "profile_url": "https://osu.ppy.sh/users/30691917"
@@ -439,8 +439,8 @@
     {
       "username": "po11op",
       "user_id": 36738602,
-      "pp": 3837.45,
-      "rank": 179560,
+      "pp": 3839.23,
+      "rank": 179463,
       "country_rank": 49,
       "avatar_url": "https://a.ppy.sh/36738602?1740343348.jpeg",
       "profile_url": "https://osu.ppy.sh/users/36738602"
