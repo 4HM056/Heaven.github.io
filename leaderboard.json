@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-01-16T09:26:28.160Z",
+  "updated_at": "2026-01-16T10:23:06.657Z",
   "country": "IQ",
   "source": "osu API v2",
   "total": 50,
@@ -179,7 +179,7 @@
       "username": "Meaco",
       "user_id": 32837861,
       "pp": 6072.31,
-      "rank": 55931,
+      "rank": 55930,
       "country_rank": 20,
       "avatar_url": "https://a.ppy.sh/32837861?1763255769.jpeg",
       "profile_url": "https://osu.ppy.sh/users/32837861"
