@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-01-17T07:18:55.831Z",
+  "updated_at": "2026-01-17T08:25:28.797Z",
   "country": "IQ",
   "source": "osu API v2",
   "total": 50,
@@ -106,8 +106,8 @@
     {
       "username": "Kamioo",
       "user_id": 19494788,
-      "pp": 6560.95,
-      "rank": 42842,
+      "pp": 6561.12,
+      "rank": 42844,
       "country_rank": 12,
       "avatar_url": "https://a.ppy.sh/19494788?1745248414.jpeg",
       "profile_url": "https://osu.ppy.sh/users/19494788"
