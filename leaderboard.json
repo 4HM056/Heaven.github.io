@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-01-17T22:18:56.925Z",
+  "updated_at": "2026-01-17T23:18:39.261Z",
   "country": "IQ",
   "source": "osu API v2",
   "total": 50,
@@ -17,7 +17,7 @@
       "username": "6xSeven",
       "user_id": 29452442,
       "pp": 9988.55,
-      "rank": 7106,
+      "rank": 7117,
       "country_rank": 2,
       "avatar_url": "https://a.ppy.sh/29452442?1746190505.jpeg",
       "profile_url": "https://osu.ppy.sh/users/29452442"
@@ -242,7 +242,7 @@
       "username": "Dash_9274",
       "user_id": 13289058,
       "pp": 5098.84,
-      "rank": 95006,
+      "rank": 95056,
       "country_rank": 27,
       "avatar_url": "https://a.ppy.sh/13289058?1694613073.jpeg",
       "profile_url": "https://osu.ppy.sh/users/13289058"
