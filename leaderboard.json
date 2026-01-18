@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-01-18T20:21:56.059Z",
+  "updated_at": "2026-01-18T21:17:50.084Z",
   "country": "IQ",
   "source": "osu API v2",
   "total": 50,
@@ -304,8 +304,8 @@
     {
       "username": "YaBoiJaafar",
       "user_id": 21651560,
-      "pp": 4679.07,
-      "rank": 118139,
+      "pp": 4679.2,
+      "rank": 118162,
       "country_rank": 34,
       "avatar_url": "https://a.ppy.sh/21651560?1620296371.jpeg",
       "profile_url": "https://osu.ppy.sh/users/21651560"
