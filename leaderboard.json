@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-01-23T14:24:51.716Z",
+  "updated_at": "2026-01-23T15:25:21.847Z",
   "country": "IQ",
   "source": "osu API v2",
   "total": 50,
@@ -62,7 +62,7 @@
       "username": "ghoul534",
       "user_id": 24991953,
       "pp": 8109.68,
-      "rank": 18943,
+      "rank": 18948,
       "country_rank": 7,
       "avatar_url": "https://a.ppy.sh/24991953?1747400265.png",
       "profile_url": "https://osu.ppy.sh/users/24991953"
@@ -113,11 +113,20 @@
       "profile_url": "https://osu.ppy.sh/users/19494788"
     },
     {
+      "username": "Kaiju13",
+      "user_id": 26916963,
+      "pp": 6475.67,
+      "rank": 45126,
+      "country_rank": 13,
+      "avatar_url": "https://a.ppy.sh/26916963?1767301791.jpeg",
+      "profile_url": "https://osu.ppy.sh/users/26916963"
+    },
+    {
       "username": "-Kirb",
       "user_id": 20594867,
       "pp": 6475.05,
       "rank": 45136,
-      "country_rank": 13,
+      "country_rank": 14,
       "avatar_url": "https://a.ppy.sh/20594867?1646325985.jpeg",
       "profile_url": "https://osu.ppy.sh/users/20594867"
     },
@@ -126,7 +135,7 @@
       "user_id": 12357263,
       "pp": 6434.38,
       "rank": 46119,
-      "country_rank": 14,
+      "country_rank": 15,
       "avatar_url": "https://a.ppy.sh/12357263?1765597428.jpeg",
       "profile_url": "https://osu.ppy.sh/users/12357263"
     },
@@ -135,7 +144,7 @@
       "user_id": 12403623,
       "pp": 6406.75,
       "rank": 46832,
-      "country_rank": 15,
+      "country_rank": 16,
       "avatar_url": "https://a.ppy.sh/12403623?1722861161.jpeg",
       "profile_url": "https://osu.ppy.sh/users/12403623"
     },
@@ -144,18 +153,9 @@
       "user_id": 13415775,
       "pp": 6363.46,
       "rank": 47916,
-      "country_rank": 16,
+      "country_rank": 17,
       "avatar_url": "https://a.ppy.sh/13415775?1671393056.gif",
       "profile_url": "https://osu.ppy.sh/users/13415775"
-    },
-    {
-      "username": "Kaiju13",
-      "user_id": 26916963,
-      "pp": 6326.49,
-      "rank": 48913,
-      "country_rank": 17,
-      "avatar_url": "https://a.ppy.sh/26916963?1767301791.jpeg",
-      "profile_url": "https://osu.ppy.sh/users/26916963"
     },
     {
       "username": "Owl_727",
