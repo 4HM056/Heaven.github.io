@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-01-24T16:23:37.454Z",
+  "updated_at": "2026-01-24T17:17:24.645Z",
   "country": "IQ",
   "source": "osu API v2",
   "total": 50,
@@ -61,8 +61,8 @@
     {
       "username": "ghoul534",
       "user_id": 24991953,
-      "pp": 8245.35,
-      "rank": 17632,
+      "pp": 8256.54,
+      "rank": 17535,
       "country_rank": 7,
       "avatar_url": "https://a.ppy.sh/24991953?1747400265.png",
       "profile_url": "https://osu.ppy.sh/users/24991953"
@@ -115,8 +115,8 @@
     {
       "username": "Kaiju13",
       "user_id": 26916963,
-      "pp": 6491.55,
-      "rank": 44736,
+      "pp": 6492.18,
+      "rank": 44728,
       "country_rank": 13,
       "avatar_url": "https://a.ppy.sh/26916963?1767301791.jpeg",
       "profile_url": "https://osu.ppy.sh/users/26916963"
@@ -296,7 +296,7 @@
       "username": "Bappo_1337",
       "user_id": 21688901,
       "pp": 4808.45,
-      "rank": 111009,
+      "rank": 111016,
       "country_rank": 33,
       "avatar_url": "https://a.ppy.sh/21688901?1756738715.jpeg",
       "profile_url": "https://osu.ppy.sh/users/21688901"
@@ -403,8 +403,8 @@
     {
       "username": "Quake203",
       "user_id": 22846495,
-      "pp": 4067.06,
-      "rank": 161142,
+      "pp": 4086.76,
+      "rank": 159623,
       "country_rank": 45,
       "avatar_url": "https://a.ppy.sh/22846495?1739300071.jpeg",
       "profile_url": "https://osu.ppy.sh/users/22846495"
