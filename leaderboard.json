@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-01-25T01:52:28.161Z",
+  "updated_at": "2026-01-25T03:53:33.737Z",
   "country": "IQ",
   "source": "osu API v2",
   "total": 50,
@@ -167,22 +167,22 @@
       "profile_url": "https://osu.ppy.sh/users/23830344"
     },
     {
+      "username": "Meaco",
+      "user_id": 32837861,
+      "pp": 6089.12,
+      "rank": 55703,
+      "country_rank": 19,
+      "avatar_url": "https://a.ppy.sh/32837861?1763255769.jpeg",
+      "profile_url": "https://osu.ppy.sh/users/32837861"
+    },
+    {
       "username": "0ilen",
       "user_id": 25015591,
       "pp": 6088.95,
       "rank": 55670,
-      "country_rank": 19,
+      "country_rank": 20,
       "avatar_url": "https://a.ppy.sh/25015591?1749424356.jpeg",
       "profile_url": "https://osu.ppy.sh/users/25015591"
-    },
-    {
-      "username": "Meaco",
-      "user_id": 32837861,
-      "pp": 6088.12,
-      "rank": 55736,
-      "country_rank": 20,
-      "avatar_url": "https://a.ppy.sh/32837861?1763255769.jpeg",
-      "profile_url": "https://osu.ppy.sh/users/32837861"
     },
     {
       "username": "Ali Ahmed",
@@ -296,7 +296,7 @@
       "username": "Bappo_1337",
       "user_id": 21688901,
       "pp": 4808.45,
-      "rank": 111016,
+      "rank": 111043,
       "country_rank": 33,
       "avatar_url": "https://a.ppy.sh/21688901?1756738715.jpeg",
       "profile_url": "https://osu.ppy.sh/users/21688901"
@@ -350,7 +350,7 @@
       "username": "saksokse",
       "user_id": 30691917,
       "pp": 4366.01,
-      "rank": 138686,
+      "rank": 138697,
       "country_rank": 39,
       "avatar_url": "https://a.ppy.sh/30691917?1678673120.jpeg",
       "profile_url": "https://osu.ppy.sh/users/30691917"
