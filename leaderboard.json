@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-01-30T20:29:09.760Z",
+  "updated_at": "2026-01-30T21:26:57.627Z",
   "country": "IQ",
   "source": "osu API v2",
   "total": 50,
@@ -35,7 +35,7 @@
       "username": "Y a d",
       "user_id": 19521102,
       "pp": 8869.83,
-      "rank": 12852,
+      "rank": 12853,
       "country_rank": 4,
       "avatar_url": "https://a.ppy.sh/19521102?1735975550.jpeg",
       "profile_url": "https://osu.ppy.sh/users/19521102"
@@ -61,8 +61,8 @@
     {
       "username": "ghoul534",
       "user_id": 24991953,
-      "pp": 8269.99,
-      "rank": 17517,
+      "pp": 8270.77,
+      "rank": 17511,
       "country_rank": 7,
       "avatar_url": "https://a.ppy.sh/24991953?1747400265.png",
       "profile_url": "https://osu.ppy.sh/users/24991953"
@@ -206,7 +206,7 @@
       "username": "LilyNightMoon",
       "user_id": 18771081,
       "pp": 5392.23,
-      "rank": 81578,
+      "rank": 81566,
       "country_rank": 23,
       "avatar_url": "https://a.ppy.sh/18771081?1750451975.jpeg",
       "profile_url": "https://osu.ppy.sh/users/18771081"
@@ -278,7 +278,7 @@
       "username": "kartel",
       "user_id": 16368385,
       "pp": 4905.97,
-      "rank": 106136,
+      "rank": 106133,
       "country_rank": 31,
       "avatar_url": "https://a.ppy.sh/16368385?1635620370.jpeg",
       "profile_url": "https://osu.ppy.sh/users/16368385"
