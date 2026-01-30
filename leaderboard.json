@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-01-30T22:24:37.675Z",
+  "updated_at": "2026-01-30T23:24:27.466Z",
   "country": "IQ",
   "source": "osu API v2",
   "total": 50,
@@ -61,8 +61,8 @@
     {
       "username": "ghoul534",
       "user_id": 24991953,
-      "pp": 8276.06,
-      "rank": 17467,
+      "pp": 8276.05,
+      "rank": 17465,
       "country_rank": 7,
       "avatar_url": "https://a.ppy.sh/24991953?1747400265.png",
       "profile_url": "https://osu.ppy.sh/users/24991953"
